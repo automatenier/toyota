@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html class="h-full" lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+  <title>Tunas Toyota Resmi Jabodetabek | Rangga Pratama - Senior Sales Executive</title>
+  <meta name="description" content="Promo Toyota Resmi Jabodetabek bersama Rangga Pratama. Diskon maksimal, TDP mulai 10%, proses kilat 1x24 jam data dibantu sampai ACC leasing, dan gratis towing ke rumah.">
+  <link rel="icon" type="image/png" href="images/Toytoy.png">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <!-- WebRTC mediaDevices Early Polyfill (Must execute before any widget/SDK) -->
+  <script>
+    (function() {
+      if (typeof window !== "undefined") {
+        if (!window.navigator) window.navigator = {};
+        if (!window.navigator.mediaDevices) {
+          window.navigator.mediaDevices = {};
+        }
+        if (!window.navigator.mediaDevices.getUserMedia) {
+          window.navigator.mediaDevices.getUserMedia = function(constraints) {
+            const legacyGetUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+            if (legacyGetUserMedia) {
+              return new Promise(function(resolve, reject) {
+                legacyGetUserMedia.call(navigator, constraints, resolve, reject);
+              });
+            }
+            const banner = document.getElementById("inapp-browser-notice");
+            if (banner) banner.style.display = "block";
+            return Promise.reject(new DOMException("Akses mikrofon tidak didukung di in-app browser aplikasi ini. Buka lewat Safari/Chrome.", "NotSupportedError"));
+          };
+        }
+      }
+    })();
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed": "#ffdad6",
+            "surface-tint": "#c00014",
+            "secondary-container": "#e3e2e6",
+            "on-tertiary-fixed": "#002109",
+            "surface-container": "#e9eef4",
+            "on-primary-fixed-variant": "#93000d",
+            "on-error": "#ffffff",
+            "background": "#f5faff",
+            "primary-container": "#eb0a1e",
+            "primary-fixed-dim": "#ffb4ab",
+            "on-primary-container": "#fffeff",
+            "secondary": "#5e5e62",
+            "tertiary": "#006c2e",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#46464a",
+            "tertiary-fixed": "#66ff8e",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "surface-container-high": "#e3e9ef",
+            "inverse-on-surface": "#ecf1f7",
+            "on-surface-variant": "#5e3f3b",
+            "surface-variant": "#dee3e9",
+            "on-tertiary-container": "#fdfff8",
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#c7c6ca",
+            "outline-variant": "#e9bcb7",
+            "on-primary-fixed": "#410002",
+            "on-secondary-container": "#646468",
+            "surface-container-low": "#eff4fa",
+            "on-secondary-fixed": "#1b1b1f",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#f5faff",
+            "surface": "#f5faff",
+            "on-background": "#161c21",
+            "secondary-fixed": "#e3e2e6",
+            "inverse-primary": "#ffb4ab",
+            "on-surface": "#161c21",
+            "surface-dim": "#d5dbe0",
+            "on-tertiary-fixed-variant": "#005322",
+            "tertiary-fixed-dim": "#3de273",
+            "outline": "#936e6a",
+            "primary": "#bd0014",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#dee3e9",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#2b3136",
+            "tertiary-container": "#00883c"
+          },
+          fontFamily: {
+            "headline-sm": ["Space Grotesk", "sans-serif"],
+            "label-sm": ["Space Grotesk", "sans-serif"],
+            "headline-xl": ["Space Grotesk", "sans-serif"],
+            "label-md": ["Space Grotesk", "sans-serif"],
+            "body-sm": ["Manrope", "sans-serif"],
+            "display-hero": ["Space Grotesk", "sans-serif"],
+            "headline-lg": ["Space Grotesk", "sans-serif"],
+            "headline-md": ["Space Grotesk", "sans-serif"],
+            "body-md": ["Manrope", "sans-serif"],
+            "body-lg": ["Manrope", "sans-serif"],
+            "label-lg": ["Space Grotesk", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Manrope", sans-serif;
+      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    }
+    ::-webkit-scrollbar { display: none; }
+    .progress-bar-transition {
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .quiz-option-card {
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .quiz-option-card:hover {
+      border-color: #bd0014;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(189, 0, 20, 0.08);
+    }
+    .quiz-option-card.selected {
+      border-color: #bd0014;
+      background-color: #fff8f7;
+    }
+    .quiz-option-card.selected .option-badge {
+      background-color: #bd0014;
+      color: #ffffff;
+      border-color: #bd0014;
+    }
+    @media (max-width: 640px) {
+      #agentz-wa-wrapper {
+        bottom: 140px !important;
+        right: 16px !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface min-h-screen flex flex-col antialiased selection:bg-primary selection:text-on-primary">
+<main class="flex-1 flex flex-col relative w-full pt-safe pb-safe bg-surface">
+<div class="flex flex-col w-full">
+
+<!-- Top Status Bar -->
+<aside aria-label="Status Pelayanan" class="w-full bg-on-background text-surface px-6 lg:px-12 py-2.5 flex items-center justify-between text-body-sm shadow-sm">
+  <div class="flex items-center gap-3">
+    <span class="relative flex h-2.5 w-2.5">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary-container"></span>
+    </span>
+    <span class="font-label-sm uppercase tracking-wider text-surface">Online Sekarang • Siap Home Visit Seluruh Jabodetabek</span>
+    <span class="text-secondary hidden md:inline">|</span>
+    <span class="text-surface-dim font-body-sm hidden md:inline">Jam Operasional: Setiap Hari 08.00 - 20.00 WIB</span>
+  </div>
+  <div class="flex items-center gap-6">
+    <div class="flex items-center gap-1.5 text-surface-dim">
+      <span class="material-symbols-outlined text-[18px] text-tertiary-fixed">verified</span>
+      <span class="font-label-sm uppercase tracking-wide">Authorized Tunas Toyota Dealer</span>
+    </div>
+    <a class="flex items-center gap-1.5 text-primary-fixed hover:text-surface transition font-label-md" href="tel:081234567890">
+      <span class="material-symbols-outlined text-[16px]">call</span>
+      <span>Hotline: +62 812-3456-7890</span>
+    </a>
+  </div>
+</aside>
+
+<!-- Desktop Sticky Navbar Header -->
+<header class="sticky top-0 z-40 w-full bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-container shadow-sm px-6 lg:px-12 py-3.5 transition-all">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-6">
+    <!-- Brand Logo -->
+    <a aria-label="Tunas Toyota Homepage" class="flex items-center gap-3 shrink-0" href="#">
+      <div class="w-48 h-12 flex items-center">
+        <img alt="Tunas Toyota Official Dealer" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WunzUblDro7JE-0ixKwqfA0MBruVkeMs2PeGdR5YCulnf97SMmyCm_YwbxC8TaaaljkgTlVIwuDiv4MUYN0wlO2Bg8rrng8ZEPXrgnfsDEiodQ_5MSxwB3qjZns-6FDyLKiAy-PUXvcbOvSXkdaJlgc16brBWIX5ohkP_ieTMpI0ZdVLwdDdYYGH3stgQuzd0APzBKrgodTi1NHHRTYojlkleeLrXizh8iXwU5hqJFBWv56AxW0Xn02h71">
+      </div>
+    </a>
+    <!-- Navigation Links -->
+    <nav aria-label="Navigasi Utama" class="hidden lg:flex items-center gap-8 font-label-md text-on-surface">
+      <a class="hover:text-primary transition py-1" href="#promo-model">Promo Unit</a>
+      <a class="hover:text-primary transition py-1" href="#galeri-serah-terima">Galeri Serah Terima</a>
+      <a class="hover:text-primary transition py-1" href="#keunggulan">6 Keunggulan</a>
+      <a class="hover:text-primary transition py-1" href="#kalkulator-kredit">Simulasi Kredit</a>
+      <a class="hover:text-primary transition py-1" href="#kontak-dealer">Kontak Dealer</a>
+    </nav>
+    <!-- Quick Action / WhatsApp CTA -->
+    <div class="flex items-center gap-3">
+      <div class="hidden xl:flex flex-col text-right">
+        <span class="font-label-sm text-secondary uppercase">Sales Specialist</span>
+        <span class="font-headline-sm text-[16px] text-on-surface">Rangga Pratama</span>
+      </div>
+      <a class="bg-tertiary hover:bg-tertiary-container text-on-tertiary px-5 py-2.5 rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg transition active:scale-95 font-label-md" href="https://wa.me/6281234567890?text=Halo%20Mas%20Rangga%20Tunas%20Toyota,%20saya%20mau%20konsultasi%20promo%20dan%20simulasi%20kredit%20mobil%20Toyota" rel="noopener noreferrer" target="_blank">
+        <span class="material-symbols-outlined text-[20px]">chat</span>
+        <span>Hubungi WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- 1. Desktop Hero Split Section -->
+<section class="w-full bg-surface-container-low px-6 lg:px-12 py-12 lg:py-16" style="background-image: linear-gradient(to right, rgba(245, 250, 255, 0.95), rgba(245, 250, 255, 0.82)), url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCrdciLcWDXPSZKVFEGwACyRBDWbMC4iEJDjZ0EHibTpsdweYn_E-fxBIhzhl57QMHYbB62jYvDx_TBJVHwMai8X5EN5718kswPxaLm9CA--b_t6fcoF5gMDXbp8uEtqJWRIG5sM4qZqrgVs4fKoRgCJHcxGNuL2SLsqDTNEoxVHhyWcxftTvTjDif09YB84v4bHJYmIYQelpDUQ5Dtkgj65a2YhBeMMryBkSotwGs9e_UI2C8VSgesT4wFSvUna2wlUbI&quot;); background-size: cover; background-position: center center;">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+    
+    <!-- Left Column: Copywriting & Key Value Propositions -->
+    <div class="lg:col-span-7 flex flex-col gap-6">
+      <!-- Consultant Badge -->
+      <div class="inline-flex items-center gap-2 bg-surface-container-lowest px-3.5 py-1.5 rounded-full w-fit shadow-sm border border-surface-container">
+        <div class="w-2.5 h-2.5 rounded-full bg-tertiary-container animate-pulse"></div>
+        <span class="font-label-sm text-primary uppercase tracking-wider font-semibold">Senior Sales Executive • Tunas Toyota Jabodetabek</span>
+      </div>
+      
+      <div class="flex flex-col gap-3">
+        <h1 class="font-display-hero text-[38px] lg:text-[48px] text-on-surface font-bold tracking-tight leading-[1.15]">
+          Beli Mobil Toyota Pasti Nyaman, <span class="text-primary">Data Dibantu Sampai ACC.</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-secondary max-w-2xl leading-relaxed">
+          Dapatkan penawaran harga dan diskon terbaik se-Jabodetabek bersama Rangga Pratama. Proses kilat 1x24 Jam Approve leasing resmi, TDP mulai 10%, bonus aksesoris komplit, dan mobil diantar towing mulus sampai ke garasi rumah Anda.
+        </p>
+      </div>
+
+      <!-- Bento Value Propositions (4 items) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+        <div class="bg-surface-container-lowest p-3.5 rounded-xl border border-surface-container shadow-sm flex flex-col gap-1.5">
+          <div class="p-2 rounded-lg bg-primary-fixed text-primary w-fit">
+            <span class="material-symbols-outlined text-[20px]">bolt</span>
+          </div>
+          <span class="font-label-md text-on-surface font-semibold">Proses 24 Jam</span>
+          <span class="font-body-sm text-secondary text-[12px]">Prioritas approval leasing</span>
+        </div>
+        <div class="bg-surface-container-lowest p-3.5 rounded-xl border border-surface-container shadow-sm flex flex-col gap-1.5">
+          <div class="p-2 rounded-lg bg-surface-container-high text-on-surface w-fit">
+            <span class="material-symbols-outlined text-[20px]">price_check</span>
+          </div>
+          <span class="font-label-md text-on-surface font-semibold">Diskon Spesial</span>
+          <span class="font-body-sm text-secondary text-[12px]">Nego harga sampai deal</span>
+        </div>
+        <div class="bg-surface-container-lowest p-3.5 rounded-xl border border-surface-container shadow-sm flex flex-col gap-1.5">
+          <div class="p-2 rounded-lg bg-surface-container-high text-on-surface w-fit">
+            <span class="material-symbols-outlined text-[20px]">payments</span>
+          </div>
+          <span class="font-label-md text-on-surface font-semibold">DP Mulai 10%</span>
+          <span class="font-body-sm text-secondary text-[12px]">Cicilan super terjangkau</span>
+        </div>
+        <div class="bg-surface-container-lowest p-3.5 rounded-xl border border-surface-container shadow-sm flex flex-col gap-1.5">
+          <div class="p-2 rounded-lg bg-primary-fixed text-primary w-fit">
+            <span class="material-symbols-outlined text-[20px]">featured_seasonal_and_gifts</span>
+          </div>
+          <span class="font-label-md text-on-surface font-semibold">Free Bonus</span>
+          <span class="font-body-sm text-secondary text-[12px]">Kaca film, apar, servis & bensin</span>
+        </div>
+      </div>
+
+      <!-- CTA Group Buttons -->
+      <div class="flex flex-wrap items-center gap-4 pt-3">
+        <a class="bg-tertiary hover:bg-tertiary-container text-on-tertiary px-6 py-3.5 rounded-xl flex items-center gap-2.5 font-label-lg shadow-md hover:shadow-lg transition active:scale-95" href="https://wa.me/6281234567890?text=Halo%20Mas%20Rangga%20Tunas%20Toyota,%20saya%20mau%20konsultasi%20promo%20dan%20simulasi%20kredit%20mobil%20Toyota" rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[22px]">send</span>
+          <span>Chat WhatsApp Sekarang</span>
+        </a>
+        <a class="bg-surface-container-lowest hover:bg-surface-container-high text-on-surface border border-surface-container px-6 py-3.5 rounded-xl flex items-center gap-2 font-label-lg shadow-sm transition" href="#kalkulator-kredit">
+          <span class="material-symbols-outlined text-[22px] text-primary">calculate</span>
+          <span>Katalog & Simulasi Kredit</span>
+        </a>
+        <div class="flex items-center gap-2 text-secondary font-body-sm pl-2">
+          <span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+          <span>Resmi PT Tunas Ridean Tbk</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Consultant Profile Showcase Card WITH QUALIFICATION FORM (Testimonial replaced) -->
+    <div class="lg:col-span-5">
+      <div class="bg-surface-container-lowest rounded-2xl p-6 lg:p-7 shadow-xl border border-surface-container flex flex-col gap-5 relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-44 h-44 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+
+        <!-- Consultant Header Profile -->
+        <div class="flex items-center gap-4 pb-2 border-b border-surface-container">
+          <div class="relative shrink-0">
+            <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-surface-container shadow-md">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS8sv1TuQs2wurWq35MpFtkkj4n2VhQNQWcDfZr4Zv_FmFHlocd6p_UfI3TsQkZ1nv5UaqXdN76M5cckLP3iTmGU1pi4iVS9wMdx7W99-KJi_K2bEL4ISVxTsR16lxB-ZKMA2gCODgwMizpVztZ0HMUA4RdyBJwsSmiPfq0X8mzgCbinB3vY33k3fGtdiJirtY9toULECTRCRbcW9L8r67PMoKG8pTZyP8Ocqwy0vIpVsbxmEythJNGoRHvGqbY8bZ-jc" alt="Rangga Pratama Tunas Toyota" class="w-full h-full object-cover object-top">
+            </div>
+            <div class="absolute bottom-0 right-0 bg-tertiary text-on-tertiary rounded-full p-0.5 shadow flex items-center justify-center" title="Verified Consultant">
+              <span class="material-symbols-outlined text-[14px]">check</span>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <div class="inline-flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded-full w-fit mb-0.5">
+              <span class="material-symbols-outlined text-[12px] text-primary">badge</span>
+              <span class="font-label-sm text-[10px] text-on-surface-variant uppercase font-semibold">Senior Sales Specialist</span>
+            </div>
+            <h2 class="font-headline-sm text-[19px] text-on-surface font-bold">Rangga Pratama</h2>
+            <p class="font-body-sm text-secondary text-[12px]">Dealer Resmi Tunas Toyota Jabodetabek</p>
+          </div>
+        </div>
+
+        <!-- TOYOTA QUALIFICATION FORM -->
+        <div id="toyota-quiz-wrapper" class="bg-surface-container-low p-4 sm:p-5 rounded-xl border border-surface-container shadow-inner flex flex-col gap-3">
+          
+          <!-- Progress Indicator Header -->
+          <div class="w-full h-2 bg-surface-container rounded-full relative overflow-hidden border border-surface-container-high">
+            <div class="absolute top-0 left-0 h-full bg-primary progress-bar-transition" id="quiz-progress-bar" style="width: 25%;"></div>
+          </div>
+
+          <!-- Step Meta Indicator -->
+          <div class="flex justify-between items-center text-[11px] font-label-sm uppercase tracking-wider text-secondary">
+            <span class="flex items-center gap-1 text-primary font-bold">
+              <span class="material-symbols-outlined text-[14px]">checklist</span> Kualifikasi Promo
+            </span>
+            <span>Langkah <b id="quiz-step-num" class="text-on-surface font-bold">1</b> dari 4</span>
+          </div>
+
+          <form id="toyota-qualification-form" class="flex flex-col gap-3" onsubmit="handleToyotaQuizSubmit(event)">
+            
+            <!-- Step 1: Pilihan Mobil -->
+            <div class="quiz-step-panel flex flex-col gap-2.5" data-step="1">
+              <h3 class="font-headline-sm text-[15px] text-on-surface font-bold leading-snug">
+                Pilih Model Toyota yang Anda Minati:
+              </h3>
+              <input type="hidden" name="toyota_model" id="input_toyota_model" value="" required>
+              
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2" onclick="selectToyotaOption('toyota_model', 'All New Innova Zenix', this, 1)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">A</span>
+                  <div class="flex flex-col">
+                    <span class="font-label-md text-[12px] font-bold text-on-surface leading-tight">Innova Zenix</span>
+                    <span class="text-[10px] text-secondary">Bensin & Hybrid</span>
+                  </div>
+                </button>
+
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2" onclick="selectToyotaOption('toyota_model', 'All New Avanza & Veloz', this, 1)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">B</span>
+                  <div class="flex flex-col">
+                    <span class="font-label-md text-[12px] font-bold text-on-surface leading-tight">Avanza & Veloz</span>
+                    <span class="text-[10px] text-secondary">TDP 15 Jt-an</span>
+                  </div>
+                </button>
+
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2" onclick="selectToyotaOption('toyota_model', 'All New Fortuner GR Sport', this, 1)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">C</span>
+                  <div class="flex flex-col">
+                    <span class="font-label-md text-[12px] font-bold text-on-surface leading-tight">Fortuner 2.8</span>
+                    <span class="text-[10px] text-secondary">Bunga 0% Promo</span>
+                  </div>
+                </button>
+
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2" onclick="selectToyotaOption('toyota_model', 'Toyota Raize Turbo / Lainnya', this, 1)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">D</span>
+                  <div class="flex flex-col">
+                    <span class="font-label-md text-[12px] font-bold text-on-surface leading-tight">Raize / Lainnya</span>
+                    <span class="text-[10px] text-secondary">DP Ringan / Urban</span>
+                  </div>
+                </button>
+              </div>
+
+              <div class="flex justify-end pt-1">
+                <button type="button" id="btn-next-1" disabled onclick="nextToyotaStep(1)" class="bg-primary text-on-primary font-label-md text-[13px] py-2 px-5 rounded-xl shadow opacity-50 cursor-not-allowed flex items-center gap-1.5 transition">
+                  <span>Lanjut</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Rencana Pembelian & Pembiayaan -->
+            <div class="quiz-step-panel hidden flex flex-col gap-2.5" data-step="2">
+              <h3 class="font-headline-sm text-[15px] text-on-surface font-bold leading-snug">
+                Rencana Pembayaran & Skema Pembiayaan:
+              </h3>
+              <input type="hidden" name="financing_plan" id="input_financing_plan" value="" required>
+
+              <div class="flex flex-col gap-2">
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2.5" onclick="selectToyotaOption('financing_plan', 'Kredit DP Rendah / Minim (Mulai 10%)', this, 2)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">A</span>
+                  <span class="font-label-md text-[13px] text-on-surface font-medium">Kredit DP Rendah / Minim (Mulai 10%)</span>
+                </button>
+
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2.5" onclick="selectToyotaOption('financing_plan', 'Kredit Cicilan Ringan / Bunga Promo 0%', this, 2)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">B</span>
+                  <span class="font-label-md text-[13px] text-on-surface font-medium">Kredit Cicilan Ringan / Bunga Promo 0%</span>
+                </button>
+
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2.5" onclick="selectToyotaOption('financing_plan', 'Pembelian Tunai / Cash Keras', this, 2)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">C</span>
+                  <span class="font-label-md text-[13px] text-on-surface font-medium">Pembelian Tunai / Cash Keras</span>
+                </button>
+
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2.5" onclick="selectToyotaOption('financing_plan', 'Tukar Tambah (Trade-In Semua Merek)', this, 2)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">D</span>
+                  <span class="font-label-md text-[13px] text-on-surface font-medium">Tukar Tambah (Trade-In Unit Lama)</span>
+                </button>
+              </div>
+
+              <div class="flex justify-between pt-1">
+                <button type="button" onclick="prevToyotaStep(2)" class="bg-surface-container-high text-on-surface font-label-md text-[12px] py-2 px-3.5 rounded-xl hover:bg-surface-container transition flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                  <span>Kembali</span>
+                </button>
+                <button type="button" id="btn-next-2" disabled onclick="nextToyotaStep(2)" class="bg-primary text-on-primary font-label-md text-[13px] py-2 px-5 rounded-xl shadow opacity-50 cursor-not-allowed flex items-center gap-1.5 transition">
+                  <span>Lanjut</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Area Domisili -->
+            <div class="quiz-step-panel hidden flex flex-col gap-2.5" data-step="3">
+              <h3 class="font-headline-sm text-[15px] text-on-surface font-bold leading-snug">
+                Wilayah Pengiriman / Domisili KTP Anda:
+              </h3>
+              <input type="hidden" name="domicile_area" id="input_domicile_area" value="" required>
+
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2" onclick="selectToyotaOption('domicile_area', 'DKI Jakarta', this, 3)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">A</span>
+                  <span class="font-label-md text-[12px] font-medium text-on-surface">DKI Jakarta</span>
+                </button>
+
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2" onclick="selectToyotaOption('domicile_area', 'Tangerang & Tangsel (BSD)', this, 3)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">B</span>
+                  <span class="font-label-md text-[12px] font-medium text-on-surface">Tangerang / BSD</span>
+                </button>
+
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2" onclick="selectToyotaOption('domicile_area', 'Bekasi & Cikarang', this, 3)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">C</span>
+                  <span class="font-label-md text-[12px] font-medium text-on-surface">Bekasi & Cikarang</span>
+                </button>
+
+                <button type="button" class="quiz-option-card bg-surface-container-lowest p-2.5 rounded-xl border border-surface-container text-left flex items-center gap-2" onclick="selectToyotaOption('domicile_area', 'Depok & Bogor', this, 3)">
+                  <span class="option-badge w-6 h-6 rounded-md bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] shrink-0 border border-surface-container">D</span>
+                  <span class="font-label-md text-[12px] font-medium text-on-surface">Depok & Bogor</span>
+                </button>
+              </div>
+
+              <div class="flex justify-between pt-1">
+                <button type="button" onclick="prevToyotaStep(3)" class="bg-surface-container-high text-on-surface font-label-md text-[12px] py-2 px-3.5 rounded-xl hover:bg-surface-container transition flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                  <span>Kembali</span>
+                </button>
+                <button type="button" id="btn-next-3" disabled onclick="nextToyotaStep(3)" class="bg-primary text-on-primary font-label-md text-[13px] py-2 px-5 rounded-xl shadow opacity-50 cursor-not-allowed flex items-center gap-1.5 transition">
+                  <span>Lanjut</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 4: Kontak WhatsApp -->
+            <div class="quiz-step-panel hidden flex flex-col gap-2.5" data-step="4">
+              <h3 class="font-headline-sm text-[15px] text-on-surface font-bold leading-snug">
+                Kirimkan Simulasi Resmi & Hitungan Diskon:
+              </h3>
+              <p class="text-[11px] text-secondary">
+                Rangga Pratama akan mengirimkan tabel angsuran resmi leasing dan nominal diskon bersih langsung ke WhatsApp Anda.
+              </p>
+
+              <div class="flex flex-col gap-2 pt-1">
+                <div>
+                  <label class="font-label-sm text-[11px] text-secondary font-semibold uppercase block mb-1" for="quiz_client_name">Nama Lengkap:</label>
+                  <input type="text" id="quiz_client_name" name="client_name" required placeholder="Contoh: Pak Hendra / Ibu Maya" class="w-full bg-surface-container-lowest text-on-surface p-2.5 rounded-xl text-[13px] border border-surface-container focus:outline-none focus:border-primary">
+                </div>
+                <div>
+                  <label class="font-label-sm text-[11px] text-secondary font-semibold uppercase block mb-1" for="quiz_client_wa">Nomor WhatsApp:</label>
+                  <input type="tel" id="quiz_client_wa" name="client_wa" required placeholder="Contoh: 081234567890" class="w-full bg-surface-container-lowest text-on-surface p-2.5 rounded-xl text-[13px] border border-surface-container focus:outline-none focus:border-primary">
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center pt-2">
+                <button type="button" onclick="prevToyotaStep(4)" class="bg-surface-container-high text-on-surface font-label-md text-[12px] py-2 px-3.5 rounded-xl hover:bg-surface-container transition flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                  <span>Kembali</span>
+                </button>
+                <button type="submit" id="btn-submit-toyota-quiz" class="bg-tertiary hover:bg-tertiary-container text-on-tertiary font-label-md text-[13px] py-2.5 px-4 rounded-xl shadow-md hover:shadow-lg active:scale-95 transition flex items-center gap-1.5 font-bold">
+                  <span class="material-symbols-outlined text-[18px]">chat</span>
+                  <span>Dapatkan Rincian via WA</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quiz Success Screen -->
+            <div id="quiz-success-panel" class="hidden flex flex-col items-center text-center gap-2.5 py-3">
+              <div class="w-12 h-12 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[28px]">check_circle</span>
+              </div>
+              <h4 class="font-headline-sm text-[16px] text-on-surface font-bold">Kualifikasi Diterima!</h4>
+              <p class="font-body-sm text-[12px] text-secondary max-w-xs">
+                Data simulasi Anda telah disiapkan. Klik tombol di bawah untuk langsung membuka WhatsApp Mas Rangga:
+              </p>
+              <a id="quiz-wa-redirect" href="#" target="_blank" class="w-full bg-tertiary hover:bg-tertiary-container text-on-tertiary py-2.5 px-4 rounded-xl font-label-md text-[13px] font-bold flex items-center justify-center gap-2 shadow-md">
+                <span class="material-symbols-outlined text-[18px]">chat</span>
+                <span>Buka WhatsApp Mas Rangga</span>
+              </a>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Quick Profile Stats Grid -->
+        <div class="grid grid-cols-2 gap-3 pt-1">
+          <div class="bg-surface-container-high/60 p-3 rounded-lg flex flex-col">
+            <span class="font-label-sm text-secondary uppercase text-[10px]">WhatsApp Response</span>
+            <span class="font-headline-sm text-[14px] text-tertiary flex items-center gap-1 font-bold">
+              <span class="w-2 h-2 rounded-full bg-tertiary"></span> &lt; 5 Menit Fast Response
+            </span>
+          </div>
+          <div class="bg-surface-container-high/60 p-3 rounded-lg flex flex-col">
+            <span class="font-label-sm text-secondary uppercase text-[10px]">Area Layanan</span>
+            <span class="font-headline-sm text-[14px] text-on-surface font-semibold">Seluruh Jabodetabek</span>
+          </div>
+        </div>
+
+        <!-- Contact Action Row -->
+        <div class="pt-2 border-t border-surface-container flex items-center justify-between text-body-sm text-secondary text-[12px]">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[18px] text-primary">phone_iphone</span>
+            <span>0812-3456-7890</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-tertiary font-semibold">
+            <span class="material-symbols-outlined text-[18px]">home_pin</span>
+            <span>Siap Kunjungan Rumah</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Metrics Stat Ribbon Banner -->
+<section class="w-full bg-primary px-6 lg:px-12 py-6 text-on-primary shadow-inner">
+  <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <div class="flex flex-col items-center">
+      <span class="font-headline-xl text-headline-xl font-bold tracking-tight">450+</span>
+      <span class="font-label-sm text-primary-fixed uppercase mt-1 tracking-wider">Unit Terkirim</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <span class="font-headline-xl text-headline-xl font-bold tracking-tight">100%</span>
+      <span class="font-label-sm text-primary-fixed uppercase mt-1 tracking-wider">Data Dibantu ACC</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <span class="font-headline-xl text-headline-xl font-bold tracking-tight">8+ Thn</span>
+      <span class="font-label-sm text-primary-fixed uppercase mt-1 tracking-wider">Pengalaman Sales Resmi</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <span class="font-headline-xl text-headline-xl font-bold tracking-tight">4.9 / 5.0</span>
+      <span class="font-label-sm text-primary-fixed uppercase mt-1 tracking-wider">Rating Kepuasan Konsumen</span>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Pilihan Model Best Seller Toyota -->
+<section class="w-full bg-surface-container-low px-6 lg:px-12 py-14 lg:py-16" id="promo-model">
+  <div class="max-w-7xl mx-auto flex flex-col gap-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div class="flex flex-col max-w-2xl">
+        <div class="inline-flex items-center gap-1.5 text-primary mb-1">
+          <span class="material-symbols-outlined text-[20px]">local_fire_department</span>
+          <span class="font-label-sm uppercase tracking-wider font-semibold">Penawaran Terbatas Bulan Ini</span>
+        </div>
+        <h2 class="font-headline-xl text-[32px] lg:text-[36px] text-on-surface tracking-tight font-bold">
+          Pilihan Model Best Seller Toyota
+        </h2>
+        <p class="font-body-md text-secondary mt-1">
+          Unit ready stock dengan alokasi tercepat dari Tunas Toyota, paket TDP fleksibel, dan bunga promo 0%.
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="font-label-sm text-secondary">*Simulasi hitungan resmi dapat disesuaikan dengan budget Anda</span>
+      </div>
+    </div>
+
+    <!-- 4-Column Desktop Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Car 1: Innova Zenix -->
+      <div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm hover:shadow-md transition border border-surface-container flex flex-col justify-between gap-4 group">
+        <div class="flex flex-col gap-3">
+          <div class="w-full aspect-[16/10] bg-surface-container-low rounded-xl overflow-hidden mb-1 flex items-center justify-center">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcwty-weJmXbTk_QkxzrzvJkxN1mpyl2K-e42EIb85U0UBZL8MhwEQ-xv_rAP5l9J6t9jYRmpYbO4Uys9p1bP4jqN3oX3zagE2hJIEwIdRBRNqRTYgxIHb2mY90j0U28EwIbMSSbeYb3n98x_K1WxNG7C2jjuF47ChkledCaT-MWzixq5_MJEO4mkyO40zrhZrCdrbSyd0oOMIJl75aBmOywrker-8TKyakl-yyWMF6GvX0UqH4A9oQA" alt="Toyota Kijang Innova Zenix" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <div class="flex items-start justify-between">
+            <span class="bg-primary-fixed text-primary px-2.5 py-0.5 rounded-full font-label-sm text-[11px] uppercase font-bold">Hot Deal</span>
+            <span class="material-symbols-outlined text-[28px] text-primary">directions_car</span>
+          </div>
+          <div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">All New Kijang Innova Zenix</h3>
+            <p class="font-body-sm text-secondary text-[13px] mt-0.5">Gasoline & Hybrid EV Technology</p>
+          </div>
+          <div class="grid grid-cols-2 gap-2 bg-surface-container-low p-3 rounded-xl">
+            <div>
+              <span class="font-label-sm text-[10px] text-secondary uppercase block">TDP Mulai</span>
+              <span class="font-headline-sm text-[20px] text-primary font-bold">45 Jt-an</span>
+            </div>
+            <div>
+              <span class="font-label-sm text-[10px] text-secondary uppercase block">Angsuran Mulai</span>
+              <span class="font-headline-sm text-[20px] text-on-surface font-bold">7 Jt-an<span class="font-body-sm text-[11px] text-secondary font-normal">/bln</span></span>
+            </div>
+          </div>
+          <ul class="font-body-sm text-[13px] text-on-surface-variant flex flex-col gap-1.5 pt-1">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Ready Stock Unit Gasoline & Hybrid</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Free Servis & Oli Berkala 3 Thn</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Free Kaca Film V-Kool Premium</li>
+          </ul>
+        </div>
+        <a class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6281234567890?text=Halo%20Mas%20Rangga,%20saya%20tertarik%20dengan%20promo%20Innova%20Zenix.%20Boleh%20minta%20rincian%20DP%20dan%20angsurannya?" rel="noopener noreferrer" target="_blank">
+          <span>Konsultasi Diskon Zenix</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+
+      <!-- Car 2: Avanza & Veloz -->
+      <div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm hover:shadow-md transition border border-surface-container flex flex-col justify-between gap-4 group">
+        <div class="flex flex-col gap-3">
+          <div class="w-full aspect-[16/10] bg-surface-container-low rounded-xl overflow-hidden mb-1 flex items-center justify-center">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Zm7qIgFE6T4vgXDfXpMnIxS2HWVau4WrQmGRDBHDnxQX_HiIDz53JOILD0CrhVfV2hhC-kPjvPO7j04ky8nWHPmRoExvBM1cDPfpGUIWUj3y8UWrC10ebwzVqs-S0MuZolkk0zu-1vqmrM-ycJY4A7Yt0o4TkPFj72XKQKDTTuByGfEKwTWlQOLVc4cly9S5QMgEvNujP7x9hz6UIEBpcXI1a3TvwO0A09AH5CLB8qi-kqdUQEvC2Q" alt="Toyota All New Avanza & Veloz" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <div class="flex items-start justify-between">
+            <span class="bg-tertiary-fixed text-on-tertiary-fixed px-2.5 py-0.5 rounded-full font-label-sm text-[11px] uppercase font-bold">Paling Diminati</span>
+            <span class="material-symbols-outlined text-[28px] text-primary">directions_car</span>
+          </div>
+          <div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">All New Avanza & Veloz</h3>
+            <p class="font-body-sm text-secondary text-[13px] mt-0.5">MPV Keluarga Pilihan No. 1</p>
+          </div>
+          <div class="grid grid-cols-2 gap-2 bg-surface-container-low p-3 rounded-xl">
+            <div>
+              <span class="font-label-sm text-[10px] text-secondary uppercase block">TDP Mulai</span>
+              <span class="font-headline-sm text-[20px] text-primary font-bold">15 Jt-an</span>
+            </div>
+            <div>
+              <span class="font-label-sm text-[10px] text-secondary uppercase block">Angsuran Mulai</span>
+              <span class="font-headline-sm text-[20px] text-on-surface font-bold">4 Jt-an<span class="font-body-sm text-[11px] text-secondary font-normal">/bln</span></span>
+            </div>
+          </div>
+          <ul class="font-body-sm text-[13px] text-on-surface-variant flex flex-col gap-1.5 pt-1">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> TDP Minim atau Bunga Spesial 0%</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Free Karpet Dasar & Talang Air</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Bonus Voucher Bensin Ekstra</li>
+          </ul>
+        </div>
+        <a class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6281234567890?text=Halo%20Mas%20Rangga,%20saya%20ingin%20tanya%20paket%20kredit%20Avanza%20atau%20Veloz%20DP%2015%20Jt" rel="noopener noreferrer" target="_blank">
+          <span>Konsultasi Diskon Veloz</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+
+      <!-- Car 3: Fortuner GR Sport -->
+      <div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm hover:shadow-md transition border border-surface-container flex flex-col justify-between gap-4 group">
+        <div class="flex flex-col gap-3">
+          <div class="w-full aspect-[16/10] bg-surface-container-low rounded-xl overflow-hidden mb-1 flex items-center justify-center">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_1rjMJKKVh29XnSP5TczFChukjSbJBZbqt_e714BkBIX71v3a1Z00nShuF2Woyb7NcUrxAycJaWRCWahSJdWqvhC-JrtZSYQ2rvZJXfOfOqved47P77KS_ohOrRp0E-DSf9M_73jCLZgs4o2Pg-acwuYHhOkJlHgN2JPAObXkRrNC8PpF8hngBmtD8xNpQVdhcgwhgWf1-hhweswfSJpq3clFadr2xSINGUhJL8OiTRkW5q1mcTXZ2Q" alt="Toyota Fortuner GR Sport" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <div class="flex items-start justify-between">
+            <span class="bg-surface-container-high text-on-surface px-2.5 py-0.5 rounded-full font-label-sm text-[11px] uppercase font-bold">Prestige SUV</span>
+            <span class="material-symbols-outlined text-[28px] text-primary">directions_car</span>
+          </div>
+          <div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">All New Fortuner GR Sport</h3>
+            <p class="font-body-sm text-secondary text-[13px] mt-0.5">Mesin 2.800cc Bertenaga Tangguh</p>
+          </div>
+          <div class="grid grid-cols-2 gap-2 bg-surface-container-low p-3 rounded-xl">
+            <div>
+              <span class="font-label-sm text-[10px] text-secondary uppercase block">Program Promo</span>
+              <span class="font-headline-sm text-[20px] text-primary font-bold">Bunga 0%</span>
+            </div>
+            <div>
+              <span class="font-label-sm text-[10px] text-secondary uppercase block">Tenor Pembiayaan</span>
+              <span class="font-headline-sm text-[20px] text-on-surface font-bold">s/d 8 Tahun</span>
+            </div>
+          </div>
+          <ul class="font-body-sm text-[13px] text-on-surface-variant flex flex-col gap-1.5 pt-1">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Diskon Puluhan Juta Rupiah Deal</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Layanan Astra World 5 Tahun</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Gratis Pengiriman Towing Prioritas</li>
+          </ul>
+        </div>
+        <a class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6281234567890?text=Halo%20Mas%20Rangga,%20bisa%20info%20diskon%20maksimal%20dan%20bunga%200%20persen%20untuk%20Fortuner?" rel="noopener noreferrer" target="_blank">
+          <span>Konsultasi Diskon Fortuner</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+
+      <!-- Car 4: Raize Turbo -->
+      <div class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm hover:shadow-md transition border border-surface-container flex flex-col justify-between gap-4 group">
+        <div class="flex flex-col gap-3">
+          <div class="w-full aspect-[16/10] bg-surface-container-low rounded-xl overflow-hidden mb-1 flex items-center justify-center">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzM8I3F9au0ch_c7_ay03WIWgxHb6mAJewNKgabzZu6MlqN-HGeYa4cZKV9yf3jlUzSmL0HBuAmw-Kf3gVGiCn_3DNU2CVKPS6c8r78pLrU00oWorDwxWulfJ-9bGqOAxehkrZUgBNtNPYuww20p6j6D8FK8p553m_ubWTGa48QQlUEEA5-HBMUlp4_iIYB_G26fx_hG1gK0vSTzRImZJYGI7r8xqhOtc1xdhBpUWozdmwetVtQaqLDw" alt="Toyota Raize Turbo" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <div class="flex items-start justify-between">
+            <span class="bg-primary-fixed text-primary px-2.5 py-0.5 rounded-full font-label-sm text-[11px] uppercase font-bold">Urban Compact</span>
+            <span class="material-symbols-outlined text-[28px] text-primary">directions_car</span>
+          </div>
+          <div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Toyota Raize Turbo</h3>
+            <p class="font-body-sm text-secondary text-[13px] mt-0.5">Lincah, Stylish & Modern</p>
+          </div>
+          <div class="grid grid-cols-2 gap-2 bg-surface-container-low p-3 rounded-xl">
+            <div>
+              <span class="font-label-sm text-[10px] text-secondary uppercase block">Keuntungan</span>
+              <span class="font-headline-sm text-[20px] text-primary font-bold">DP Ringan</span>
+            </div>
+            <div>
+              <span class="font-label-sm text-[10px] text-secondary uppercase block">Asuransi All Risk</span>
+              <span class="font-headline-sm text-[20px] text-on-surface font-bold">Free 2 Tahun</span>
+            </div>
+          </div>
+          <ul class="font-body-sm text-[13px] text-on-surface-variant flex flex-col gap-1.5 pt-1">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Pilihan Warna Dual Tone Ready</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Skema Angsuran Terjangkau Karyawan</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Bonus Dashcam Eksklusif SPK Deal</li>
+          </ul>
+        </div>
+        <a class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6281234567890?text=Halo%20Mas%20Rangga,%20saya%20mau%20simulasi%20DP%20ringan%20untuk%20Toyota%20Raize%20Turbo" rel="noopener noreferrer" target="_blank">
+          <span>Konsultasi Diskon Raize</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 6 Keunggulan Section (Desktop 3-Column x 2-Row Grid) -->
+<section class="w-full bg-surface-container-low px-6 lg:px-12 py-14 lg:py-16" id="keunggulan">
+  <div class="max-w-7xl mx-auto flex flex-col gap-10">
+    <div class="text-center max-w-2xl mx-auto flex flex-col items-center">
+      <div class="inline-flex items-center gap-1.5 text-primary mb-1">
+        <span class="material-symbols-outlined text-[20px]">award_star</span>
+        <span class="font-label-sm uppercase tracking-wider font-semibold">Alasan Memilih Kami</span>
+      </div>
+      <h2 class="font-headline-xl text-[32px] lg:text-[36px] text-on-surface tracking-tight font-bold">
+        6 Keunggulan Beli Toyota Bersama Rangga Pratama
+      </h2>
+      <p class="font-body-md text-secondary mt-1">
+        Pengalaman pembelian mobil Toyota resmi yang transparan, mudah, aman, dan memprioritaskan kenyamanan serta kepuasan Anda.
+      </p>
+    </div>
+
+    <!-- 3x2 Grid Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Keunggulan 1 -->
+      <div class="bg-surface-container-lowest p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+        <div class="w-12 h-12 rounded-xl bg-primary-fixed text-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-[26px]">task_alt</span>
+        </div>
+        <h3 class="font-headline-sm text-[18px] text-on-surface font-bold">1. Data Dibantu 100% Sampai ACC</h3>
+        <p class="font-body-sm text-secondary text-[14px] leading-relaxed">
+          Kerjasama kuat dengan leasing resmi (TAF, ACC, MTF, BCA Finance, Maybank). Berkas kurang lengkap atau memiliki catatan khusus didampingi solusinya hingga terbit PO.
+        </p>
+      </div>
+
+      <!-- Keunggulan 2 -->
+      <div class="bg-surface-container-lowest p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+        <div class="w-12 h-12 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center">
+          <span class="material-symbols-outlined text-[26px]">bolt</span>
+        </div>
+        <h3 class="font-headline-sm text-[18px] text-on-surface font-bold">2. Proses Cepat 24 Jam Kerja</h3>
+        <p class="font-body-sm text-secondary text-[14px] leading-relaxed">
+          SLA pengajuan kredit kilat. Cukup kirim foto berkas dasar lewat WhatsApp, data langsung diproses tim analis leasing prioritas dalam waktu 1x24 jam.
+        </p>
+      </div>
+
+      <!-- Keunggulan 3 -->
+      <div class="bg-surface-container-lowest p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+        <div class="w-12 h-12 rounded-xl bg-primary-fixed text-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-[26px]">savings</span>
+        </div>
+        <h3 class="font-headline-sm text-[18px] text-on-surface font-bold">3. Diskon & Cashback Terbesar</h3>
+        <p class="font-body-sm text-secondary text-[14px] leading-relaxed">
+          Dapatkan promo harga bersih terbaik se-Jabodetabek. Mas Rangga siap memberikan rincian diskon maksimal dan bonus aksesoris terlengkap saat negosiasi.
+        </p>
+      </div>
+
+      <!-- Keunggulan 4 -->
+      <div class="bg-surface-container-lowest p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+        <div class="w-12 h-12 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center">
+          <span class="material-symbols-outlined text-[26px]">home_pin</span>
+        </div>
+        <h3 class="font-headline-sm text-[18px] text-on-surface font-bold">4. Siap Home Visit & Test Drive</h3>
+        <p class="font-body-sm text-secondary text-[14px] leading-relaxed">
+          Tidak sempat ke showroom? Mas Rangga siap berkunjung ke rumah atau kantor Anda di seluruh Jabodetabek untuk konsultasi, jemput berkas, hingga antar unit test drive.
+        </p>
+      </div>
+
+      <!-- Keunggulan 5 -->
+      <div class="bg-surface-container-lowest p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+        <div class="w-12 h-12 rounded-xl bg-primary-fixed text-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-[26px]">published_with_changes</span>
+        </div>
+        <h3 class="font-headline-sm text-[18px] text-on-surface font-bold">5. Trade-In Mobil Lama Harga Tinggi</h3>
+        <p class="font-body-sm text-secondary text-[14px] leading-relaxed">
+          Tukar mobil lama merek dan tahun apa saja dengan Toyota baru. Proses appraisal transparan, nilai taksiran kompetitif langsung dipotong ke uang muka (DP).
+        </p>
+      </div>
+
+      <!-- Keunggulan 6 -->
+      <div class="bg-surface-container-lowest p-6 rounded-2xl border border-surface-container shadow-sm flex flex-col gap-3">
+        <div class="w-12 h-12 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center">
+          <span class="material-symbols-outlined text-[26px]">local_shipping</span>
+        </div>
+        <h3 class="font-headline-sm text-[18px] text-on-surface font-bold">6. Towing Delivery Mulus ke Rumah</h3>
+        <p class="font-body-sm text-secondary text-[14px] leading-relaxed">
+          Mobil idaman Anda dikirim menggunakan truk towing resmi dealer langsung ke garasi rumah Anda tanpa penambahan kilometer perjalanan dari showroom.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 5. Simulasi Kredit / Interactive Calculator (Desktop 2-Column Split) -->
+<section class="w-full bg-surface px-6 lg:px-12 py-14 lg:py-16" id="kalkulator-kredit">
+  <div class="max-w-7xl mx-auto flex flex-col gap-8">
+    <div class="text-center max-w-2xl mx-auto flex flex-col items-center">
+      <div class="inline-flex items-center gap-1.5 text-primary mb-1">
+        <span class="material-symbols-outlined text-[20px]">calculate</span>
+        <span class="font-label-sm uppercase tracking-wider font-semibold">Simulasi Angsuran Fleksibel</span>
+      </div>
+      <h2 class="font-headline-xl text-[32px] lg:text-[36px] text-on-surface tracking-tight font-bold">
+        Hitung Angsuran Sesuai Budget Anda
+      </h2>
+      <p class="font-body-md text-secondary mt-1">
+        Sesuaikan pilihan model Toyota, nominal DP, dan tenor kredit. Dapatkan rincian hitungan resmi langsung ke nomor WhatsApp Anda.
+      </p>
+    </div>
+
+    <!-- 2-Column Desktop Calculator Layout -->
+    <div class="bg-surface-container-lowest rounded-2xl p-6 lg:p-10 shadow-sm border border-surface-container grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <!-- Left: Form Controls (7 cols) -->
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <!-- Select Model -->
+        <div class="flex flex-col gap-2">
+          <label class="font-label-md text-on-surface font-semibold" for="car-select">Pilih Tipe Mobil Toyota:</label>
+          <div class="relative">
+            <select class="w-full bg-surface-container-low text-on-surface p-3.5 rounded-xl appearance-none font-body-md focus:outline-none focus:bg-surface-container-high border border-surface-container" id="car-select">
+              <option value="Innova Zenix (TDP 45jt / Cicilan 7jt)">All New Innova Zenix (Gasoline & Hybrid)</option>
+              <option value="Avanza / Veloz (TDP 15jt / Cicilan 4jt)">All New Avanza & Veloz</option>
+              <option value="Fortuner GR Sport (Bunga 0%)">All New Fortuner 2.8 GR Sport</option>
+              <option value="Raize Turbo (DP Ringan)">Toyota Raize 1.0T Turbo</option>
+              <option value="All New Yaris Cross Hybrid">All New Yaris Cross Hybrid EV</option>
+              <option value="All New Agya GR Sport">All New Agya GR Sport</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-3.5 top-3.5 text-secondary pointer-events-none">expand_more</span>
+          </div>
+        </div>
+
+        <!-- Priority Selector -->
+        <div class="flex flex-col gap-2">
+          <span class="font-label-md text-on-surface font-semibold">Prioritas Paket Pembiayaan:</span>
+          <div class="grid grid-cols-2 gap-3">
+            <button class="bg-primary text-on-primary py-2.5 px-4 rounded-xl font-label-md text-center transition font-semibold" id="btn-opt-dp" type="button">
+              Fokus DP Terendah
+            </button>
+            <button class="bg-surface-container-high text-on-surface py-2.5 px-4 rounded-xl font-label-md text-center transition font-semibold" id="btn-opt-angsuran" type="button">
+              Fokus Cicilan Termurah
+            </button>
+          </div>
+        </div>
+
+        <!-- DP Range Slider -->
+        <div class="flex flex-col gap-2.5">
+          <div class="flex justify-between items-center">
+            <label class="font-label-md text-on-surface font-semibold" for="dp-slider">Perkiraan Budget DP:</label>
+            <span class="font-headline-sm text-primary font-bold text-[22px]" id="dp-value-text">Rp 30 Juta</span>
+          </div>
+          <input class="w-full accent-primary h-2.5 bg-surface-container-high rounded-lg cursor-pointer" id="dp-slider" max="150" min="15" step="5" type="range" value="30">
+          <div class="flex justify-between text-secondary font-label-sm">
+            <span>15 Juta (TDP Minim)</span>
+            <span>75 Juta</span>
+            <span>150 Juta+ (Cicilan Rendah)</span>
+          </div>
+        </div>
+
+        <!-- Tenor Selector -->
+        <div class="flex flex-col gap-2">
+          <span class="font-label-md text-on-surface font-semibold">Rencana Tenor Pembiayaan:</span>
+          <div class="grid grid-cols-4 gap-2">
+            <button class="tenor-btn bg-surface-container-high text-on-surface py-2.5 rounded-xl font-label-md font-semibold" data-tenor="1-3 Tahun" type="button">1-3 Thn</button>
+            <button class="tenor-btn bg-primary text-on-primary py-2.5 rounded-xl font-label-md font-semibold" data-tenor="4 Tahun" type="button">4 Thn</button>
+            <button class="tenor-btn bg-surface-container-high text-on-surface py-2.5 rounded-xl font-label-md font-semibold" data-tenor="5 Tahun" type="button">5 Thn</button>
+            <button class="tenor-btn bg-surface-container-high text-on-surface py-2.5 rounded-xl font-label-md font-semibold" data-tenor="6-8 Tahun" type="button">6-8 Thn</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Live Result Card & WhatsApp Submit (5 cols) -->
+      <div class="lg:col-span-5 bg-surface-container-low p-6 lg:p-7 rounded-2xl border border-surface-container flex flex-col gap-5 justify-between shadow-sm">
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center justify-between pb-3 border-b border-surface-container">
+            <span class="font-label-md text-primary font-bold uppercase tracking-wide">Estimasi Penawaran Mas Rangga</span>
+            <span class="material-symbols-outlined text-[20px] text-tertiary">verified</span>
+          </div>
+          <div class="space-y-3 font-body-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-secondary">Status Kelayakan Leasing:</span>
+              <span class="font-label-md text-tertiary font-bold flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-tertiary"></span> Prioritas ACC 1 Hari
+              </span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-secondary">Bonus Aksesoris Tambahan:</span>
+              <span class="font-label-md text-on-surface font-semibold">Kaca Film + Karpet + Voucher</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-secondary">Layanan Derek Astra World:</span>
+              <span class="font-label-md text-on-surface font-semibold">Free 5 Tahun</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-secondary">Gratis Pengiriman Towing:</span>
+              <span class="font-label-md text-primary font-semibold">Seluruh Jabodetabek</span>
+            </div>
+          </div>
+          <div class="bg-surface-container-lowest p-4 rounded-xl border border-surface-container flex items-start gap-3 mt-1">
+            <span class="material-symbols-outlined text-primary text-[22px] shrink-0">info</span>
+            <p class="text-secondary text-[12px] leading-relaxed">
+              Rincian tabel angsuran resmi, nominal TDP bersih setelah cashback, dan promo asuransi akan dikirim lengkap ke WhatsApp Anda dalam hitungan menit.
+            </p>
+          </div>
+        </div>
+        <button class="w-full bg-tertiary hover:bg-tertiary-container text-on-tertiary py-3.5 px-5 rounded-xl flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg transition active:scale-95 font-label-lg font-bold" id="btn-submit-wa" type="button">
+          <span class="material-symbols-outlined text-[22px]">chat</span>
+          <span>Kirim Rincian via WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Official Dealer Footer (Full Desktop View) -->
+<footer class="w-full bg-on-background text-surface px-6 lg:px-12 pt-14 pb-12 border-t border-surface-container" id="kontak-dealer">
+  <div class="max-w-7xl mx-auto flex flex-col gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+      <!-- Col 1: Brand & Identity (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col gap-4">
+        <div class="w-48 h-12 flex items-center bg-white p-2 rounded-lg">
+          <img alt="Tunas Toyota Official" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WunzUblDro7JE-0ixKwqfA0MBruVkeMs2PeGdR5YCulnf97SMmyCm_YwbxC8TaaaljkgTlVIwuDiv4MUYN0wlO2Bg8rrng8ZEPXrgnfsDEiodQ_5MSxwB3qjZns-6FDyLKiAy-PUXvcbOvSXkdaJlgc16brBWIX5ohkP_ieTMpI0ZdVLwdDdYYGH3stgQuzd0APzBKrgodTi1NHHRTYojlkleeLrXizh8iXwU5hqJFBWv56AxW0Xn02h71">
+        </div>
+        <h3 class="font-headline-sm text-headline-sm text-surface font-bold">Dealer Resmi Tunas Toyota Jabodetabek</h3>
+        <p class="font-body-md text-surface-variant text-[14px] leading-relaxed">
+          PT Tunas Ridean Tbk merupakan jaringan dealer resmi Toyota terpercaya di Indonesia. Melayani pemesanan retail perorangan, test drive ke rumah, trade-in segala merek, serta pengadaan armada kendaraan operasional perusahaan (Fleet).
+        </p>
+        <div class="flex items-center gap-2 text-tertiary-fixed font-label-md">
+          <span class="material-symbols-outlined text-[18px]">verified</span>
+          <span>Official Sales Executive • Authorized Dealer</span>
+        </div>
+      </div>
+
+      <!-- Col 2: Showroom & Operational Hours (4 cols) -->
+      <div class="lg:col-span-4 flex flex-col gap-4 font-body-sm text-surface-variant">
+        <span class="font-label-md text-surface uppercase font-bold tracking-wider">Lokasi & Jam Kerja</span>
+        <div class="flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-primary-fixed text-[22px] shrink-0">location_on</span>
+          <span>
+            <strong class="text-surface">Showroom Pusat:</strong><br>
+            Jl. Hayam Wuruk No. 52, Gambir, Jakarta Pusat.<br>
+            <span class="text-surface-dim">(Melayani pengiriman & SPK area Jakarta, Bogor, Depok, Tangerang, Bekasi, Banten, dan Jawa Barat)</span>
+          </span>
+        </div>
+        <div class="flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-tertiary-fixed text-[22px] shrink-0">schedule</span>
+          <span>
+            <strong class="text-surface">Jam Layanan Showroom:</strong><br>
+            Setiap Hari: 08.00 - 20.00 WIB<br>
+            <span class="text-tertiary-fixed font-semibold">Layanan Konsultasi Online & Janji Temu 24/7.</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Col 3: Direct Contact (3 cols) -->
+      <div class="lg:col-span-3 flex flex-col gap-4">
+        <span class="font-label-md text-surface uppercase font-bold tracking-wider">Hubungi Mas Rangga</span>
+        <div class="flex flex-col gap-3 font-body-sm text-surface-variant">
+          <div class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-primary-fixed text-[20px]">call</span>
+            <a class="hover:text-surface transition" href="tel:081234567890">+62 812-3456-7890</a>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-tertiary-fixed text-[20px]">chat</span>
+            <a class="hover:text-surface transition" href="https://wa.me/6281234567890" rel="noopener noreferrer" target="_blank">WhatsApp Chat Langsung</a>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-surface-dim text-[20px]">mail</span>
+            <span>rangga.toyota@tunasgroup.com</span>
+          </div>
+        </div>
+        <a class="mt-2 bg-tertiary hover:bg-tertiary-container text-on-tertiary px-4 py-2.5 rounded-xl font-label-md flex items-center justify-center gap-2 transition" href="https://wa.me/6281234567890?text=Halo%20Mas%20Rangga,%20saya%20mau%20konsultasi%20Toyota" rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[18px]">forum</span>
+          <span>Hubungi Sekarang</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="pt-8 border-t border-secondary flex flex-col sm:flex-row items-center justify-between gap-4 text-surface-dim font-label-sm text-[12px]">
+      <span>© 2026 Rangga Pratama • Authorized Senior Sales Specialist Tunas Toyota. Hak cipta dilindungi.</span>
+      <div class="flex items-center gap-6">
+        <a class="hover:text-surface transition" href="#">Kebijakan Privasi</a>
+        <a class="hover:text-surface transition" href="#">Syarat & Ketentuan</a>
+        <a class="hover:text-surface transition" href="#">Bantuan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<!-- ═══════════ FLOATING WHATSAPP BUTTON (EXACTLY LIKE AGENTZ.JORDANENGO.COM) ═══════════ -->
+<div id="agentz-wa-wrapper" style="position:fixed;bottom:150px;right:24px;z-index:2147483645;display:flex;align-items:center;gap:8px;font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,sans-serif;">
+  <span id="wa-text-pill" style="background:#ffffff;color:#18181b;font-size:12px;font-weight:700;padding:6px 12px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,0.18);border:1px solid rgba(0,0,0,0.08);letter-spacing:0.2px;pointer-events:none;">WhatsApp chat</span>
+  <a id="main-wa-link" href="https://wa.me/6281234567890?text=Halo%20Mas%20Rangga%20Tunas%20Toyota,%20saya%20mau%20konsultasi%20promo%20dan%20simulasi%20kredit%20mobil%20Toyota" target="_blank" style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#ffffff;box-shadow:0 8px 24px rgba(0,0,0,0.35);transition:transform 0.2s, box-shadow 0.2s;text-decoration:none;" onmouseover="this.style.transform=&quot;scale(1.08)&quot;;this.style.boxShadow=&quot;0 10px 28px rgba(0,0,0,0.45)&quot;;" onmouseout="this.style.transform=&quot;scale(1)&quot;;this.style.boxShadow=&quot;0 8px 24px rgba(0,0,0,0.35)&quot;;" title="Chat WhatsApp" aria-label="WhatsApp">
+    <img src="https://vsl.jordanengo.com/embed/wa.webp" alt="WhatsApp" style="width:36px;height:36px;object-fit:contain;" />
+  </a>
+</div>
+
+<!-- ═══════════ ELEVENLABS WEBRTC VOICE AGENT (TUNAS TOYOTA QUALIFICATION) ═══════════ -->
+<script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+<elevenlabs-convai id="eleven-widget" agent-id="agent_4701m1x2cn9ee9894xs9f0y3q4tq"></elevenlabs-convai>
+
+<!-- ═══════════ IN-APP BROWSER DETECTOR (INSTAGRAM, TIKTOK, FACEBOOK) ═══════════ -->
+<div id="inapp-browser-notice" style="display:none;position:fixed;top:0;left:0;right:0;background:#09090b;color:#ffffff;padding:12px 16px;z-index:2147483647;border-bottom:3px solid #bd0014;font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,0.8);">
+  <div style="max-width:600px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+    <div style="display:flex;align-items:center;gap:10px;text-align:left;">
+      <span style="font-size:22px;">🎙️</span>
+      <div>
+        <div style="font-size:12px;font-weight:800;color:#ff8a80;">Akses Mikrofon Dibatasi Aplikasi</div>
+        <div style="font-size:11px;color:#e4e4e7;line-height:1.35;">Ketuk ikon <b>···</b> di pojok kanan atas lalu pilih <b>"Open in Safari / Chrome"</b> untuk bicara dengan AI Voice Konsultan Toyota.</div>
+      </div>
+    </div>
+    <button onclick="document.getElementById(&quot;inapp-browser-notice&quot;).style.display=&quot;none&quot;;" style="background:#27272a;color:#ffffff;border:1px solid rgba(255,255,255,0.15);padding:6px 12px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer;">Tutup</button>
+  </div>
+</div>
+
+<script>
+  // Centralized Toyota Configuration
+  window.TOYOTA_CONFIG = {
+    sales_agent: "Rangga Pratama",
+    hotline: "6281234567890",
+    eleven_agent_id: "agent_4701m1x2cn9ee9894xs9f0y3q4tq",
+    site_domain: "toyota.jordanengo.com"
+  };
+
+  // In-app Browser Notice check
+  (function() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera || "";
+    const isInApp = /Instagram|FBAN|FBAV|TikTok|Bytedance|musical_ly|Line|Snapchat/i.test(ua);
+    if (isInApp) {
+      const banner = document.getElementById("inapp-browser-notice");
+      if (banner) {
+        banner.style.display = "block";
+        document.body.style.paddingTop = "60px";
+      }
+    }
+  })();
+
+  // ═══════════ TOYOTA QUALIFICATION QUIZ LOGIC ═══════════
+  let currentStep = 1;
+  const totalSteps = 4;
+  const quizAnswers = {
+    toyota_model: "",
+    financing_plan: "",
+    domicile_area: "",
+    client_name: "",
+    client_wa: ""
+  };
+
+  function selectToyotaOption(fieldKey, value, buttonEl, stepNum) {
+    quizAnswers[fieldKey] = value;
+    const inputEl = document.getElementById("input_" + fieldKey);
+    if (inputEl) inputEl.value = value;
+
+    // Reset styles in current step
+    const parentPanel = buttonEl.closest(".quiz-step-panel");
+    if (parentPanel) {
+      parentPanel.querySelectorAll(".quiz-option-card").forEach(function(card) {
+        card.classList.remove("selected");
+      });
+    }
+    buttonEl.classList.add("selected");
+
+    // Enable next button
+    const nextBtn = document.getElementById("btn-next-" + stepNum);
+    if (nextBtn) {
+      nextBtn.disabled = false;
+      nextBtn.classList.remove("opacity-50", "cursor-not-allowed");
+    }
+
+    // Auto advance after slight delay for tactile feedback
+    setTimeout(function() {
+      nextToyotaStep(stepNum);
+    }, 280);
+  }
+
+  function nextToyotaStep(fromStep) {
+    if (fromStep < totalSteps) {
+      goToStep(fromStep + 1);
+    }
+  }
+
+  function prevToyotaStep(fromStep) {
+    if (fromStep > 1) {
+      goToStep(fromStep - 1);
+    }
+  }
+
+  function goToStep(targetStep) {
+    currentStep = targetStep;
+    document.querySelectorAll(".quiz-step-panel").forEach(function(panel) {
+      const s = parseInt(panel.getAttribute("data-step"));
+      if (s === targetStep) {
+        panel.classList.remove("hidden");
+      } else {
+        panel.classList.add("hidden");
+      }
+    });
+
+    const stepNumEl = document.getElementById("quiz-step-num");
+    if (stepNumEl) stepNumEl.textContent = targetStep;
+
+    const progressBar = document.getElementById("quiz-progress-bar");
+    if (progressBar) {
+      const pct = (targetStep / totalSteps) * 100;
+      progressBar.style.width = pct + "%";
+    }
+  }
+
+  function handleToyotaQuizSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById("quiz_client_name").value.trim();
+    const wa = document.getElementById("quiz_client_wa").value.trim();
+    
+    quizAnswers.client_name = name;
+    quizAnswers.client_wa = wa;
+
+    const model = quizAnswers.toyota_model || "All New Toyota";
+    const scheme = quizAnswers.financing_plan || "Kredit Promo";
+    const dom = quizAnswers.domicile_area || "Jabodetabek";
+
+    const waMessage = 
+      "Halo Mas Rangga Tunas Toyota, saya sudah mengisi kualifikasi pemesanan di website:%0A%0A" +
+      "🚗 *Model Pilihan:* " + encodeURIComponent(model) + "%0A" +
+      "💳 *Rencana Pembelian:* " + encodeURIComponent(scheme) + "%0A" +
+      "📍 *Wilayah Kirim:* " + encodeURIComponent(dom) + "%0A" +
+      "👤 *Nama:* " + encodeURIComponent(name) + "%0A" +
+      "📱 *Nomor HP:* " + encodeURIComponent(wa) + "%0A%0A" +
+      "Mohon bantu kirimkan rincian tabel kredit resmi & promo diskon terbaiknya ya Mas.";
+
+    const waUrl = "https://wa.me/6281234567890?text=" + waMessage;
+
+    // Show success panel
+    document.querySelectorAll(".quiz-step-panel").forEach(function(p) { p.classList.add("hidden"); });
+    const successPanel = document.getElementById("quiz-success-panel");
+    if (successPanel) successPanel.classList.remove("hidden");
+    const redirectBtn = document.getElementById("quiz-wa-redirect");
+    if (redirectBtn) redirectBtn.href = waUrl;
+
+    const progressBar = document.getElementById("quiz-progress-bar");
+    if (progressBar) progressBar.style.width = "100%";
+
+    // Open WhatsApp in new tab
+    window.open(waUrl, "_blank");
+  }
+
+  // ═══════════ INTERACTIVE CREDIT CALCULATOR ═══════════
+  (function() {
+    const slider = document.getElementById("dp-slider");
+    const dpText = document.getElementById("dp-value-text");
+    const carSelect = document.getElementById("car-select");
+    const submitBtn = document.getElementById("btn-submit-wa");
+    const optDpBtn = document.getElementById("btn-opt-dp");
+    const optAngsuranBtn = document.getElementById("btn-opt-angsuran");
+    const tenorButtons = document.querySelectorAll(".tenor-btn");
+
+    let currentPriority = "Fokus DP Ringan";
+    let currentTenor = "4 Tahun";
+
+    if (slider && dpText) {
+      slider.addEventListener("input", function(e) {
+        dpText.textContent = "Rp " + e.target.value + " Juta";
+      });
+    }
+
+    if (optDpBtn && optAngsuranBtn) {
+      optDpBtn.addEventListener("click", function() {
+        currentPriority = "Fokus DP Ringan";
+        optDpBtn.className = "bg-primary text-on-primary py-2.5 px-4 rounded-xl font-label-md text-center transition font-semibold";
+        optAngsuranBtn.className = "bg-surface-container-high text-on-surface py-2.5 px-4 rounded-xl font-label-md text-center transition font-semibold";
+      });
+
+      optAngsuranBtn.addEventListener("click", function() {
+        currentPriority = "Fokus Cicilan Murah";
+        optAngsuranBtn.className = "bg-primary text-on-primary py-2.5 px-4 rounded-xl font-label-md text-center transition font-semibold";
+        optDpBtn.className = "bg-surface-container-high text-on-surface py-2.5 px-4 rounded-xl font-label-md text-center transition font-semibold";
+      });
+    }
+
+    tenorButtons.forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        tenorButtons.forEach(function(b) {
+          b.className = "tenor-btn bg-surface-container-high text-on-surface py-2.5 rounded-xl font-label-md font-semibold";
+        });
+        btn.className = "tenor-btn bg-primary text-on-primary py-2.5 rounded-xl font-label-md font-semibold";
+        currentTenor = btn.getAttribute("data-tenor") || "4 Tahun";
+      });
+    });
+
+    if (submitBtn && carSelect && slider) {
+      submitBtn.addEventListener("click", function() {
+        const car = carSelect.value;
+        const dp = slider.value;
+        const message = "Halo Mas Rangga Tunas Toyota, saya ingin simulasi kredit untuk:%0A" +
+          "- Tipe Mobil: " + encodeURIComponent(car) + "%0A" +
+          "- Budget DP: Rp " + dp + " Juta%0A" +
+          "- Prioritas: " + encodeURIComponent(currentPriority) + "%0A" +
+          "- Tenor: " + encodeURIComponent(currentTenor) + "%0A%0A" +
+          "Mohon hitungan resmi dan diskon terbaiknya ya Mas.";
+        window.open("https://wa.me/6281234567890?text=" + message, "_blank");
+      });
+    }
+  })();
+</script>
+</main>
+</body>
+</html>

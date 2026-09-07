@@ -1,0 +1,192 @@
+{
+  "agent_id": "agent_4701m1x2cn9ee9894xs9f0y3q4tq",
+  "name": "Rangga Pratama - Tunas Toyota Qualification AI",
+  "version": "1.0.0",
+  "dealer": {
+    "name": "Tunas Toyota Jabodetabek",
+    "company": "PT Tunas Ridean Tbk",
+    "sales_specialist": "Rangga Pratama",
+    "title": "Senior Sales Executive",
+    "whatsapp_phone": "6281234567890",
+    "hotline": "+62 812-3456-7890",
+    "showroom_address": "Jl. Hayam Wuruk No. 52, Gambir, Jakarta Pusat",
+    "service_coverage": "Jakarta, Bogor, Depok, Tangerang, Bekasi (Jabodetabek)"
+  },
+  "persona": {
+    "role": "Senior Sales Executive Digital Consultant",
+    "tone": "Ramah, profesional, antusias, solutif, transparan, dan meyakinkan (Bahasa Indonesia santun)",
+    "primary_objective": "Mengkualifikasi kebutuhan calon pembeli mobil Toyota (model, skema kredit/cash/trade-in, budget DP, tenor, domisili) dan mengarahkan ke simulasi resmi WhatsApp & SPK."
+  },
+  "elevenlabs_settings": {
+    "model_id": "eleven_turbo_v2_5",
+    "voice_id": "OYTbf65OHHFELVut7v2H",
+    "language": "id",
+    "temperature": 0.1,
+    "stability": 0.5,
+    "similarity_boost": 0.8,
+    "first_message": "Halo! Selamat datang di Tunas Toyota Jabodetabek, bersama asisten digital Mas Rangga Pratama di sini. Boleh tahu dengan Bapak atau Ibu siapa, dan sedang tertarik dengan unit Toyota apa nih? Ada Innova Zenix, Veloz, Avanza, Fortuner, atau Raize?"
+  },
+  "qualification_matrix": {
+    "models": [
+      {
+        "id": "zenix",
+        "name": "All New Kijang Innova Zenix",
+        "variants": [
+          "Gasoline 2.0 G/V",
+          "Hybrid EV 2.0 G/V/Q Modellista"
+        ],
+        "tdp_starting_from": "45 Juta-an",
+        "installment_starting_from": "7 Juta-an/bln",
+        "highlights": [
+          "Ready Stock Unit Bensin & Hybrid",
+          "Free Servis & Oli 3 Tahun",
+          "Free Kaca Film V-Kool"
+        ]
+      },
+      {
+        "id": "avanza_veloz",
+        "name": "All New Avanza & Veloz",
+        "variants": [
+          "Avanza 1.3/1.5",
+          "Veloz Q CVT TSS"
+        ],
+        "tdp_starting_from": "15 Juta-an",
+        "installment_starting_from": "4 Juta-an/bln",
+        "highlights": [
+          "TDP Super Ringan atau Bunga 0%",
+          "Free Karpet Dasar & Talang Air",
+          "Bonus Voucher Bensin"
+        ]
+      },
+      {
+        "id": "fortuner",
+        "name": "All New Fortuner 2.8 GR Sport",
+        "variants": [
+          "2.8 VRZ 4x2",
+          "2.8 GR Sport 4x4"
+        ],
+        "tdp_starting_from": "Promo Bunga 0%",
+        "installment_starting_from": "Tenor s/d 8 Tahun",
+        "highlights": [
+          "Diskon Puluhan Juta Rupiah",
+          "Layanan Astra World 5 Tahun",
+          "Free Towing Jabodetabek"
+        ]
+      },
+      {
+        "id": "raize",
+        "name": "Toyota Raize 1.0T Turbo & 1.2G",
+        "variants": [
+          "1.2 G",
+          "1.0T Turbo GR Sport Dual Tone"
+        ],
+        "tdp_starting_from": "DP Ringan Karyawan",
+        "installment_starting_from": "3 Juta-an/bln",
+        "highlights": [
+          "Free Asuransi All-Risk 2 Tahun",
+          "Dual Tone Ready Stock",
+          "Bonus Dashcam Eksklusif"
+        ]
+      },
+      {
+        "id": "yaris_cross",
+        "name": "All New Yaris Cross Hybrid EV",
+        "variants": [
+          "1.5 G",
+          "1.5 S Hybrid EV GR Sport"
+        ],
+        "tdp_starting_from": "35 Juta-an",
+        "installment_starting_from": "6 Juta-an/bln",
+        "highlights": [
+          "EV Mode Super Irit BBM",
+          "Panoramic Glassroof",
+          "TSS 3.0"
+        ]
+      },
+      {
+        "id": "agya_calya",
+        "name": "All New Agya & Calya",
+        "variants": [
+          "Calya 1.2 G",
+          "Agya GR Sport"
+        ],
+        "tdp_starting_from": "10 Juta-an",
+        "installment_starting_from": "2 Juta-an/bln",
+        "highlights": [
+          "Mobil Harian Irit & Praktis",
+          "Angsuran Paling Terjangkau",
+          "Biaya Perawatan Murah"
+        ]
+      }
+    ],
+    "financing_schemes": [
+      {
+        "id": "dp_ringan",
+        "label": "Kredit DP Rendah (TDP 10-15%)"
+      },
+      {
+        "id": "cicilan_rendah",
+        "label": "Kredit Bunga 0% / Cicilan Ringan"
+      },
+      {
+        "id": "cash",
+        "label": "Pembelian Cash Keras / Tunai"
+      },
+      {
+        "id": "trade_in",
+        "label": "Tukar Tambah (Trade-In Semua Merek)"
+      }
+    ],
+    "coverage_areas": [
+      "DKI Jakarta",
+      "Tangerang & BSD",
+      "Bekasi & Cikarang",
+      "Depok & Bogor",
+      "Wilayah Lainnya"
+    ]
+  },
+  "qualification_steps": [
+    {
+      "step": 1,
+      "key": "model",
+      "question": "Model Toyota apa yang sedang Anda cari?",
+      "options": [
+        "Innova Zenix",
+        "Avanza & Veloz",
+        "Fortuner GR Sport",
+        "Raize Turbo / Lainnya"
+      ]
+    },
+    {
+      "step": 2,
+      "key": "scheme",
+      "question": "Metode pembelian apa yang Anda rencanakan?",
+      "options": [
+        "Kredit DP Minim",
+        "Cicilan Ringan / Bunga 0%",
+        "Cash / Tunai",
+        "Trade-in Tukar Tambah"
+      ]
+    },
+    {
+      "step": 3,
+      "key": "domicile",
+      "question": "Di area mana domisili pengiriman unit Anda?",
+      "options": [
+        "DKI Jakarta",
+        "Tangerang / Tangsel",
+        "Bekasi / Cikarang",
+        "Depok / Bogor"
+      ]
+    },
+    {
+      "step": 4,
+      "key": "contact",
+      "question": "Data Anda untuk pengiriman simulasi resmi:",
+      "fields": [
+        "Nama Lengkap",
+        "Nomor WhatsApp"
+      ]
+    }
+  ]
+}
