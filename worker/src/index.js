@@ -155,15 +155,86 @@ export default {
           hour12: false,
         }).format(now);
 
-        const name = body.client_name || body.name || "Anonim";
-        let phone = body.client_wa || body.phone || body.wa || "-";
-        const model = body.toyota_model || body.model || "All New Toyota";
-        const scheme = body.financing_plan || body.scheme || "Kredit Promo";
-        const domicile = body.domicile_area || body.domicile || "Jabodetabek";
-        const budget = body.budget_dp || body.budget || "-";
-        const status = body.status || "🔥 New Lead";
-        const source = body.source || "Form Kualifikasi Website";
-        const notes = body.notes || "Lead masuk dari landing page toyota.jordanengo.com";
+        // Check if request originates from ElevenLabs Post-call Webhook or Agent Tool
+        const isElevenLabs = body.type === "post_call_transcription" || 
+                             Boolean(body.agent_id) || 
+                             Boolean(body.conversation_id) || 
+                             (typeof body.source === "string" && body.source.toLowerCase().includes("elevenlabs")) ||
+                             Boolean(body.analysis && body.analysis.data_collection_results);
+
+        const dataCollection = (body.analysis && body.analysis.data_collection_results) || {};
+
+        const name = body.client_name || 
+                     body.name || 
+                     body.customer_name || 
+                     body.caller_name || 
+                     body.user_name || 
+                     (dataCollection.name && dataCollection.name.value) || 
+                     (dataCollection.client_name && dataCollection.client_name.value) || 
+                     (dataCollection.customer_name && dataCollection.customer_name.value) || 
+                     (isElevenLabs ? "Lead Voice AI" : "Anonim");
+
+        let phone = body.client_wa || 
+                    body.phone || 
+                    body.whatsapp || 
+                    body.phone_number || 
+                    body.caller_phone || 
+                    body.wa || 
+                    (dataCollection.phone && dataCollection.phone.value) || 
+                    (dataCollection.whatsapp && dataCollection.whatsapp.value) || 
+                    (dataCollection.client_wa && dataCollection.client_wa.value) || 
+                    "-";
+
+        const model = body.toyota_model || 
+                      body.model || 
+                      body.car_model || 
+                      body.car || 
+                      (dataCollection.model && dataCollection.model.value) || 
+                      (dataCollection.toyota_model && dataCollection.toyota_model.value) || 
+                      (isElevenLabs ? "Konsultasi Voice AI" : "All New Toyota");
+
+        const scheme = body.financing_plan || 
+                       body.scheme || 
+                       body.payment_plan || 
+                       body.payment_method || 
+                       (dataCollection.scheme && dataCollection.scheme.value) || 
+                       (dataCollection.financing_plan && dataCollection.financing_plan.value) || 
+                       (isElevenLabs ? "Konsultasi Suara" : "Kredit Promo");
+
+        const domicile = body.domicile_area || 
+                         body.domicile || 
+                         body.city || 
+                         body.location || 
+                         (dataCollection.domicile && dataCollection.domicile.value) || 
+                         (dataCollection.city && dataCollection.city.value) || 
+                         "Jabodetabek";
+
+        const budget = body.budget_dp || 
+                       body.budget || 
+                       body.dp || 
+                       (dataCollection.budget && dataCollection.budget.value) || 
+                       (dataCollection.budget_dp && dataCollection.budget_dp.value) || 
+                       "-";
+
+        const status = body.status || 
+                       (isElevenLabs ? (phone !== "-" ? "🔥 Voice AI Qualified Lead" : "🎙️ Voice Session Log") : "🔥 New Lead");
+
+        const source = body.source || (isElevenLabs ? "ElevenLabs Voice Agent" : "Form Kualifikasi Website");
+
+        let transcriptSummary = (body.analysis && body.analysis.transcript_summary) || 
+                                body.transcript_summary || 
+                                body.summary || 
+                                (Array.isArray(body.transcript) ? body.transcript.map(t => `${t.role}: ${t.message}`).join(" | ").slice(0, 500) : "");
+
+        const notes = body.notes || 
+                      (transcriptSummary ? `Voice AI Summary: ${transcriptSummary}` : (isElevenLabs ? "Lead kualifikasi via ElevenLabs Voice AI" : "Lead masuk dari landing page toyota.jordanengo.com"));
+
+        const gclid = body.gclid || "-";
+        const utmCampaign = body.utm_campaign || "-";
+        const utmSource = body.utm_source || (isElevenLabs ? "elevenlabs" : "direct");
+        const utmMedium = body.utm_medium || (isElevenLabs ? "voice" : "none");
+        const utmContent = body.utm_content || body.utm_term || "-";
+        const landingPage = body.landing_page || "https://toyota.jordanengo.com";
 
         if (phone && phone !== "-" && !phone.startsWith("'")) {
           phone = "'" + phone;
@@ -180,10 +251,16 @@ export default {
           status,
           source,
           notes,
+          gclid,
+          utmCampaign,
+          utmSource,
+          utmMedium,
+          utmContent,
+          landingPage,
         ];
 
         const token = await getGoogleAuthToken(saEmail, saKey);
-        const appendUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1!A:J:append?valueInputOption=USER_ENTERED`;
+        const appendUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/Sheet1!A:P:append?valueInputOption=USER_ENTERED`;
 
         const res = await fetch(appendUrl, {
           method: "POST",

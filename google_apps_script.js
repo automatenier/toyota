@@ -76,24 +76,88 @@ function doPost(e) {
       }
     }
 
-    // Parsing data lead yang masuk
+    // Parsing data lead yang masuk (Mendukung Form Website & ElevenLabs Voice AI)
     var tz = "Asia/Jakarta";
     var timestamp = data.timestamp || Utilities.formatDate(new Date(), tz, "yyyy-MM-dd HH:mm:ss");
-    var name = data.client_name || data.name || "Anonim";
-    var phone = data.client_wa || data.phone || data.wa || "-";
-    var model = data.toyota_model || data.model || "All New Toyota";
-    var scheme = data.financing_plan || data.scheme || "Kredit Promo";
-    var domicile = data.domicile_area || data.domicile || "Jabodetabek";
-    var budget = data.budget_dp || data.budget || "-";
-    var status = data.status || "🔥 New Lead";
-    var source = data.source || "Website Kualifikasi Form";
-    var notes = data.notes || "Lead masuk dari landing page toyota.jordanengo.com";
+
+    var isElevenLabs = data.type === "post_call_transcription" || 
+                       Boolean(data.agent_id) || 
+                       Boolean(data.conversation_id) || 
+                       (typeof data.source === "string" && data.source.toLowerCase().indexOf("elevenlabs") !== -1) ||
+                       Boolean(data.analysis && data.analysis.data_collection_results);
+
+    var dataCollection = (data.analysis && data.analysis.data_collection_results) || {};
+
+    var name = data.client_name || 
+               data.name || 
+               data.customer_name || 
+               data.caller_name || 
+               data.user_name || 
+               (dataCollection.name && dataCollection.name.value) || 
+               (dataCollection.client_name && dataCollection.client_name.value) || 
+               (dataCollection.customer_name && dataCollection.customer_name.value) || 
+               (isElevenLabs ? "Lead Voice AI" : "Anonim");
+
+    var phone = data.client_wa || 
+                data.phone || 
+                data.whatsapp || 
+                data.phone_number || 
+                data.caller_phone || 
+                data.wa || 
+                (dataCollection.phone && dataCollection.phone.value) || 
+                (dataCollection.whatsapp && dataCollection.whatsapp.value) || 
+                (dataCollection.client_wa && dataCollection.client_wa.value) || 
+                "-";
+
+    var model = data.toyota_model || 
+                data.model || 
+                data.car_model || 
+                data.car || 
+                (dataCollection.model && dataCollection.model.value) || 
+                (dataCollection.toyota_model && dataCollection.toyota_model.value) || 
+                (isElevenLabs ? "Konsultasi Voice AI" : "All New Toyota");
+
+    var scheme = data.financing_plan || 
+                 data.scheme || 
+                 data.payment_plan || 
+                 data.payment_method || 
+                 (dataCollection.scheme && dataCollection.scheme.value) || 
+                 (dataCollection.financing_plan && dataCollection.financing_plan.value) || 
+                 (isElevenLabs ? "Konsultasi Suara" : "Kredit Promo");
+
+    var domicile = data.domicile_area || 
+                   data.domicile || 
+                   data.city || 
+                   data.location || 
+                   (dataCollection.domicile && dataCollection.domicile.value) || 
+                   (dataCollection.city && dataCollection.city.value) || 
+                   "Jabodetabek";
+
+    var budget = data.budget_dp || 
+                 data.budget || 
+                 data.dp || 
+                 (dataCollection.budget && dataCollection.budget.value) || 
+                 (dataCollection.budget_dp && dataCollection.budget_dp.value) || 
+                 "-";
+
+    var status = data.status || 
+                 (isElevenLabs ? (phone !== "-" ? "🔥 Voice AI Qualified Lead" : "🎙️ Voice Session Log") : "🔥 New Lead");
+
+    var source = data.source || (isElevenLabs ? "ElevenLabs Voice Agent" : "Form Kualifikasi Website");
+
+    var transcriptSummary = (data.analysis && data.analysis.transcript_summary) || 
+                            data.transcript_summary || 
+                            data.summary || 
+                            (Array.isArray(data.transcript) ? data.transcript.map(function(t) { return (t.role || "") + ": " + (t.message || ""); }).join(" | ").substring(0, 500) : "");
+
+    var notes = data.notes || 
+                (transcriptSummary ? "Voice AI Summary: " + transcriptSummary : (isElevenLabs ? "Lead kualifikasi via ElevenLabs Voice AI" : "Lead masuk dari landing page toyota.jordanengo.com"));
 
     // Attribution data dari Google Ads & UTM Tracker
     var gclid = data.gclid || "-";
     var utmCampaign = data.utm_campaign || "-";
-    var utmSource = data.utm_source || "direct";
-    var utmMedium = data.utm_medium || "none";
+    var utmSource = data.utm_source || (isElevenLabs ? "elevenlabs" : "direct");
+    var utmMedium = data.utm_medium || (isElevenLabs ? "voice" : "none");
     var utmContent = data.utm_content || data.utm_term || "-";
     var landingPage = data.landing_page || "-";
 

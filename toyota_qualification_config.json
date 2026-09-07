@@ -24,7 +24,22 @@
     "temperature": 0.1,
     "stability": 0.5,
     "similarity_boost": 0.8,
-    "first_message": "Halo! Selamat datang di Tunas Toyota Jabodetabek, bersama Mathew Jordan di sini. Boleh tahu dengan Bapak atau Ibu siapa, dan sedang tertarik dengan unit Toyota apa nih? Ada Avanza, Calya, Agya, Innova Diesel, atau model lainnya?"
+    "first_message": "Halo! Selamat datang di Tunas Toyota Jabodetabek, bersama Mathew Jordan di sini. Boleh tahu dengan Bapak atau Ibu siapa, dan sedang tertarik dengan unit Toyota apa nih? Ada Avanza, Calya, Agya, Innova Diesel, atau model lainnya?",
+    "webhook_crm": {
+      "endpoint": "https://toyota-crm.ordan-engo-1.workers.dev",
+      "google_sheet": "https://docs.google.com/spreadsheets/d/10bdJgupeYWTA_pHQ-qGjIlANb-dmR8yHyOisdbQc1e0/edit",
+      "tool_name": "save_lead",
+      "description": "Simpan data prospek/kualifikasi mobil Toyota dari percakapan suara ke Google Sheet CRM resmi",
+      "parameters": {
+        "client_name": "Nama lengkap calon pembeli",
+        "client_wa": "Nomor WhatsApp aktif pemesan",
+        "toyota_model": "Model unit Toyota pilihan (misal: Innova Zenix, Avanza, Fortuner)",
+        "financing_plan": "Skema pembelian (Kredit DP Ringan, Bunga 0%, Cash, atau Trade-in)",
+        "domicile_area": "Wilayah domisili pengiriman (Jabodetabek)",
+        "budget_dp": "Budget DP atau perkiraan angsuran (opsional)",
+        "notes": "Catatan preferensi atau kebutuhan khusus konsumen"
+      }
+    }
   },
   "qualification_matrix": {
     "models": [

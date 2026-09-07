@@ -452,23 +452,158 @@
       target.setAttribute("href", decoratedUrl);
     }, { capture: true, passive: false });
 
-    // B. ElevenLabs Voice Agent Interaction Listener
+    // B. ElevenLabs Voice Agent Interaction & Google Sheet CRM Sync
     const elevenWidget = document.getElementById("eleven-widget");
-    if (elevenWidget) {
-      let voiceTracked = false;
-      const trackVoice = function() {
-        if (voiceTracked) return;
-        voiceTracked = true;
-        logDebug("ElevenLabs Voice Agent interaction detected");
-        trackConversion("voice_agent_interact", {
-          service: "elevenlabs_voice_consultant"
-        });
-      };
+    let voiceTracked = false;
 
+    const logVoiceSessionToCRM = function(status, note) {
+      if (!window.TOYOTA_CONFIG || !window.TOYOTA_CONFIG.crm_endpoint) return;
+      try {
+        const attribution = getAttribution();
+        const metaIds = getMetaIdentifiers();
+        const payload = {
+          timestamp: new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" }),
+          client_name: "Pengunjung Web (Voice AI)",
+          client_wa: "-",
+          toyota_model: "Tunas Toyota Voice Consultation",
+          financing_plan: "-",
+          domicile_area: "Jabodetabek",
+          budget_dp: "-",
+          status: status || "🎙️ Voice Session Started",
+          source: "ElevenLabs Voice Agent",
+          notes: note || "Pengunjung memulai sesi percakapan suara dengan AI Mathew Jordan",
+          gclid: attribution.gclid || "-",
+          utm_campaign: attribution.utm_campaign || "-",
+          utm_source: attribution.utm_source || "direct",
+          utm_medium: attribution.utm_medium || "none",
+          utm_content: attribution.utm_content || attribution.utm_term || "-",
+          landing_page: attribution.landing_page || window.location.pathname,
+          event_id: "voice_sess_" + Date.now(),
+          event_name: "Contact",
+          fbp: metaIds.fbp || "",
+          fbc: metaIds.fbc || "",
+          fbclid: metaIds.fbclid || "",
+          client_user_agent: navigator.userAgent || ""
+        };
+
+        fetch(window.TOYOTA_CONFIG.crm_endpoint, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).catch(function(err) {
+          logDebug("Voice CRM sync warning:", err);
+        });
+      } catch (err) {
+        logDebug("Voice CRM sync error:", err);
+      }
+    };
+
+    const trackVoice = function() {
+      if (voiceTracked) return;
+      voiceTracked = true;
+      logDebug("ElevenLabs Voice Agent interaction detected");
+      trackConversion("voice_agent_interact", {
+        service: "elevenlabs_voice_consultant"
+      });
+      logVoiceSessionToCRM("🎙️ Voice Session Started", "Pengunjung membuka / memulai interaksi suara dengan AI Mathew Jordan");
+    };
+
+    if (elevenWidget) {
       elevenWidget.addEventListener("click", trackVoice);
       elevenWidget.addEventListener("focusin", trackVoice);
-      window.addEventListener("elevenlabs-convai:call", trackVoice);
+      elevenWidget.addEventListener("conversationStarted", trackVoice);
+    }
+
+    // Intercept ElevenLabs convai call initialization to attach clientTools for lead capture
+    if (typeof window !== "undefined" && typeof window.addEventListener === "function") {
+      window.addEventListener("elevenlabs-convai:call", function(e) {
+        trackVoice();
+        if (!e.detail) e.detail = {};
+        const config = e.detail.config || {};
+        e.detail.config = config;
+        config.clientTools = config.clientTools || {};
+
+        const saveVoiceLeadToCRM = async function(params) {
+          params = params || {};
+          logDebug("ElevenLabs Voice Agent qualification tool invoked:", params);
+          const attribution = getAttribution();
+          const metaIds = getMetaIdentifiers();
+          const clientName = params.client_name || params.name || params.customer_name || params.caller_name || "Lead Voice AI";
+          const clientPhone = params.client_wa || params.phone || params.whatsapp || params.phone_number || "-";
+          const carModel = params.toyota_model || params.model || params.car || params.car_model || "All New Toyota";
+          const financingPlan = params.financing_plan || params.scheme || params.plan || "Kredit Promo";
+          const domicile = params.domicile_area || params.domicile || params.location || params.city || "Jabodetabek";
+          const budgetDp = params.budget_dp || params.budget || params.dp || "-";
+          const leadNotes = params.notes || params.summary || params.keterangan || "Lead kualifikasi dari percakapan Voice AI Mathew Jordan";
+
+          const eventId = "voice_lead_" + Date.now();
+          trackConversion("hero_quiz_lead", {
+            toyota_model: carModel,
+            financing_plan: financingPlan,
+            domicile_area: domicile,
+            value: 100000
+          }, {
+            name: clientName,
+            phone: clientPhone
+          });
+
+          if (window.TOYOTA_CONFIG && window.TOYOTA_CONFIG.crm_endpoint) {
+            try {
+              const payload = {
+                timestamp: new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" }),
+                client_name: clientName,
+                client_wa: clientPhone,
+                toyota_model: carModel,
+                financing_plan: financingPlan,
+                domicile_area: domicile,
+                budget_dp: budgetDp,
+                status: "🔥 Voice AI Qualified Lead",
+                source: "ElevenLabs Voice Agent",
+                notes: leadNotes + " | EventID: " + eventId,
+                gclid: attribution.gclid || "-",
+                utm_campaign: attribution.utm_campaign || "-",
+                utm_source: attribution.utm_source || "direct",
+                utm_medium: attribution.utm_medium || "none",
+                utm_content: attribution.utm_content || attribution.utm_term || "-",
+                landing_page: attribution.landing_page || window.location.pathname,
+                event_id: eventId,
+                event_name: "Lead",
+                fbp: metaIds.fbp || "",
+                fbc: metaIds.fbc || "",
+                fbclid: metaIds.fbclid || "",
+                client_user_agent: navigator.userAgent || ""
+              };
+
+              await fetch(window.TOYOTA_CONFIG.crm_endpoint, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+              });
+              logDebug("Voice AI lead successfully posted to CRM endpoint");
+            } catch (err) {
+              logDebug("Error logging voice lead to CRM:", err);
+            }
+          }
+          return { success: true, message: "Data kualifikasi mobil Toyota Anda telah tersimpan di CRM Tunas Toyota." };
+        };
+
+        // Support various tool invocation names that the ElevenLabs agent might call
+        config.clientTools.save_lead = saveVoiceLeadToCRM;
+        config.clientTools.record_lead = saveVoiceLeadToCRM;
+        config.clientTools.record_qualification = saveVoiceLeadToCRM;
+        config.clientTools.submit_lead = saveVoiceLeadToCRM;
+        config.clientTools.simpan_prospek = saveVoiceLeadToCRM;
+        config.clientTools.simpan_kontak = saveVoiceLeadToCRM;
+        config.clientTools.simpan_data_customer = saveVoiceLeadToCRM;
+      }, { capture: true });
+
       window.addEventListener("elevenlabs-convai:start", trackVoice);
+      window.addEventListener("conversationStarted", trackVoice);
+      window.addEventListener("conversationEnded", function() {
+        logVoiceSessionToCRM("🎙️ Voice Session Ended", "Percakapan suara dengan AI Mathew Jordan selesai");
+      });
     }
   }
 
