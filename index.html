@@ -1167,12 +1167,15 @@
     const scheme = quizAnswers.financing_plan || "Kredit Promo";
     const dom = quizAnswers.domicile_area || "Jabodetabek";
 
-    // 1. Ambil attribution data aktif (Google Ads GCLID / UTMs)
+    // 1. Ambil attribution data aktif (Google Ads GCLID / UTMs & Meta _fbp/_fbc)
     const attribution = (window.ToyotaTracker && window.ToyotaTracker.getAttribution) 
       ? window.ToyotaTracker.getAttribution() 
       : {};
+    const metaIds = (window.ToyotaTracker && window.ToyotaTracker.getMetaIdentifiers)
+      ? window.ToyotaTracker.getMetaIdentifiers()
+      : { fbp: "", fbc: "", fbclid: "" };
 
-    // 2. Fire Google Ads Primary Conversion with Enhanced Conversions (First-party normalized data)
+    // 2. Fire Google Ads Primary Conversion with Enhanced Conversions & Meta Pixel
     let conversionEventId = "";
     if (window.ToyotaTracker) {
       conversionEventId = window.ToyotaTracker.trackConversion("hero_quiz_lead", {
@@ -1186,7 +1189,7 @@
       });
     }
 
-    // 3. Asynchronous background CRM logging to Google Sheets (disertai GCLID & UTM)
+    // 3. Asynchronous background CRM logging to Google Sheets & Meta CAPI Relay
     if (window.TOYOTA_CONFIG && window.TOYOTA_CONFIG.crm_endpoint) {
       try {
         const payload = {
@@ -1205,7 +1208,14 @@
           utm_source: attribution.utm_source || "direct",
           utm_medium: attribution.utm_medium || "none",
           utm_content: attribution.utm_content || attribution.utm_term || "-",
-          landing_page: attribution.landing_page || window.location.pathname
+          landing_page: attribution.landing_page || window.location.pathname,
+          // Meta CAPI & Server-Side Dedup fields
+          event_id: conversionEventId || "",
+          event_name: "Lead",
+          fbp: metaIds.fbp || "",
+          fbc: metaIds.fbc || "",
+          fbclid: metaIds.fbclid || "",
+          client_user_agent: navigator.userAgent || ""
         };
         fetch(window.TOYOTA_CONFIG.crm_endpoint, {
           method: "POST",
@@ -1297,12 +1307,15 @@
         const car = carSelect.value;
         const dp = slider.value;
 
-        // Ambil attribution aktif
+        // Ambil attribution aktif (Google Ads GCLID / UTMs & Meta _fbp/_fbc)
         const attribution = (window.ToyotaTracker && window.ToyotaTracker.getAttribution)
           ? window.ToyotaTracker.getAttribution()
           : {};
+        const metaIds = (window.ToyotaTracker && window.ToyotaTracker.getMetaIdentifiers)
+          ? window.ToyotaTracker.getMetaIdentifiers()
+          : { fbp: "", fbc: "", fbclid: "" };
 
-        // Track conversion Google Ads
+        // Track conversion Google Ads & Meta Pixel
         let calcEventId = "";
         if (window.ToyotaTracker) {
           calcEventId = window.ToyotaTracker.trackConversion("credit_calc_lead", {
@@ -1314,7 +1327,7 @@
           });
         }
 
-        // Log calculation inquiry to CRM
+        // Log calculation inquiry to CRM & Meta CAPI Relay
         if (window.TOYOTA_CONFIG && window.TOYOTA_CONFIG.crm_endpoint) {
           try {
             const payload = {
@@ -1333,7 +1346,14 @@
               utm_source: attribution.utm_source || "direct",
               utm_medium: attribution.utm_medium || "none",
               utm_content: attribution.utm_content || attribution.utm_term || "-",
-              landing_page: attribution.landing_page || window.location.pathname
+              landing_page: attribution.landing_page || window.location.pathname,
+              // Meta CAPI & Server-Side Dedup fields
+              event_id: calcEventId || "",
+              event_name: "CustomizeProduct",
+              fbp: metaIds.fbp || "",
+              fbc: metaIds.fbc || "",
+              fbclid: metaIds.fbclid || "",
+              client_user_agent: navigator.userAgent || ""
             };
             fetch(window.TOYOTA_CONFIG.crm_endpoint, {
               method: "POST",

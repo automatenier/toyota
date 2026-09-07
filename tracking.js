@@ -122,6 +122,49 @@
     }
   }
 
+  // 3.1 META CAPI IDENTIFIER HELPERS (_fbp and _fbc)
+  function getCookie(name) {
+    try {
+      const match = document.cookie ? document.cookie.match(new RegExp("(^|;\\s*)" + name + "=([^;]*)")) : null;
+      return match ? decodeURIComponent(match[2]) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function setCookie(name, value, days) {
+    try {
+      const d = new Date();
+      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+      document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + d.toUTCString() + ";path=/;SameSite=Lax";
+    } catch (e) {}
+  }
+
+  function getMetaIdentifiers() {
+    let fbp = getCookie("_fbp");
+    if (!fbp) {
+      try { fbp = localStorage.getItem("toyota_fbp") || ""; } catch (e) {}
+    }
+
+    let fbc = getCookie("_fbc");
+    if (!fbc) {
+      try { fbc = localStorage.getItem("toyota_fbc") || ""; } catch (e) {}
+    }
+
+    // Auto-generate standard _fbc if visitor came with fbclid
+    if (activeAttribution.fbclid && !fbc) {
+      fbc = "fb.1." + Date.now() + "." + activeAttribution.fbclid;
+      setCookie("_fbc", fbc, 90);
+      try { localStorage.setItem("toyota_fbc", fbc); } catch (e) {}
+    }
+
+    return {
+      fbp: fbp || "",
+      fbc: fbc || "",
+      fbclid: activeAttribution.fbclid || ""
+    };
+  }
+
   logDebug("Engine initialized. Active attribution:", activeAttribution);
 
   // 4. PHONE NUMBER NORMALIZATION (E.164 Format for Google Enhanced Conversions)
@@ -441,6 +484,7 @@
   // 10. EXPOSE GLOBAL TRACKER API
   window.ToyotaTracker = {
     getAttribution: function() { return Object.assign({}, activeAttribution); },
+    getMetaIdentifiers: getMetaIdentifiers,
     normalizePhone: normalizeIndonesianPhone,
     splitName: splitFullName,
     pushDataLayer: pushDataLayer,
@@ -454,6 +498,7 @@
         attribution: activeAttribution,
         google_ads_id: config.google_ads_id || "not configured",
         ga4_id: config.ga4_id || "not configured",
+        meta_pixel_id: config.meta_pixel_id || "not configured",
         conversion_labels: config.conversion_labels || {},
         enhanced_conversions_enabled: config.enhanced_conversions !== false
       };

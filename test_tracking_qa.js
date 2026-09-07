@@ -128,6 +128,12 @@ const calcEventId = window.ToyotaTracker.trackConversion("credit_calc_lead", {
 });
 assert(typeof calcEventId === "string" && calcEventId.startsWith("credit_calc_lead_"), "Calculator event generated unique ID");
 
+// TEST 8: Meta CAPI Identifiers (_fbp, _fbc, fbclid)
+const metaIds = window.ToyotaTracker.getMetaIdentifiers();
+assert(typeof metaIds === "object", "ToyotaTracker.getMetaIdentifiers() returns object");
+assert(typeof metaIds.fbc === "string" && typeof metaIds.fbp === "string", "fbp and fbc keys exist");
+assert(metaIds.fbc.startsWith("fb.1.") || metaIds.fbc === "", "fbc follows Meta standard format");
+
 // SUMMARY
 console.log("========================================================");
 console.log(` RESULTS: ${testsPassed} of ${testsTotal} QA tests passed!`);
