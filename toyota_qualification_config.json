@@ -1,14 +1,14 @@
 {
   "agent_id": "agent_4701m1x2cn9ee9894xs9f0y3q4tq",
-  "name": "Rangga Pratama - Tunas Toyota Qualification AI",
+  "name": "Mathew Jordan - Tunas Toyota Qualification AI",
   "version": "1.0.0",
   "dealer": {
     "name": "Tunas Toyota Jabodetabek",
     "company": "PT Tunas Ridean Tbk",
-    "sales_specialist": "Rangga Pratama",
+    "sales_specialist": "Mathew Jordan",
     "title": "Senior Sales Executive",
-    "whatsapp_phone": "6281234567890",
-    "hotline": "+62 812-3456-7890",
+    "whatsapp_phone": "6288975785200",
+    "hotline": "+62 889-7578-5200",
     "showroom_address": "Jl. Hayam Wuruk No. 52, Gambir, Jakarta Pusat",
     "service_coverage": "Jakarta, Bogor, Depok, Tangerang, Bekasi (Jabodetabek)"
   },
@@ -24,7 +24,7 @@
     "temperature": 0.1,
     "stability": 0.5,
     "similarity_boost": 0.8,
-    "first_message": "Halo! Selamat datang di Tunas Toyota Jabodetabek, bersama asisten digital Mas Rangga Pratama di sini. Boleh tahu dengan Bapak atau Ibu siapa, dan sedang tertarik dengan unit Toyota apa nih? Ada Innova Zenix, Veloz, Avanza, Fortuner, atau Raize?"
+    "first_message": "Halo! Selamat datang di Tunas Toyota Jabodetabek, bersama Mathew Jordan di sini. Boleh tahu dengan Bapak atau Ibu siapa, dan sedang tertarik dengan unit Toyota apa nih? Ada Avanza, Calya, Agya, Innova Diesel, atau model lainnya?"
   },
   "qualification_matrix": {
     "models": [
