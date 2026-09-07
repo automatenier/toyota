@@ -1037,7 +1037,9 @@
     sales_agent: "Mathew Jordan",
     hotline: "6288975785200",
     eleven_agent_id: "agent_4701m1x2cn9ee9894xs9f0y3q4tq",
-    site_domain: "toyota.jordanengo.com"
+    site_domain: "toyota.jordanengo.com",
+    spreadsheet_id: "10bdJgupeYWTA_pHQ-qGjIlANb-dmR8yHyOisdbQc1e0",
+    crm_endpoint: "" // Web App deployment URL dari Google Apps Script (/exec)
   };
 
   // In-app Browser Notice check
@@ -1136,6 +1138,34 @@
     const scheme = quizAnswers.financing_plan || "Kredit Promo";
     const dom = quizAnswers.domicile_area || "Jabodetabek";
 
+    // Asynchronous background CRM logging to Google Sheets
+    if (window.TOYOTA_CONFIG && window.TOYOTA_CONFIG.crm_endpoint) {
+      try {
+        const payload = {
+          timestamp: new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" }),
+          client_name: name,
+          client_wa: wa,
+          toyota_model: model,
+          financing_plan: scheme,
+          domicile_area: dom,
+          budget_dp: "-",
+          status: "🔥 New Lead",
+          source: "Form Kualifikasi Hero",
+          notes: "Lead kualifikasi instan dari website"
+        };
+        fetch(window.TOYOTA_CONFIG.crm_endpoint, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).catch(function(err) {
+          console.warn("CRM logging:", err);
+        });
+      } catch (err) {
+        console.warn("CRM error:", err);
+      }
+    }
+
     const waMessage = 
       "Halo Mas Jordan Tunas Toyota, saya sudah mengisi kualifikasi pemesanan di website:%0A%0A" +
       "🚗 *Model Pilihan:* " + encodeURIComponent(model) + "%0A" +
@@ -1208,6 +1238,35 @@
       submitBtn.addEventListener("click", function() {
         const car = carSelect.value;
         const dp = slider.value;
+
+        // Log calculation inquiry to CRM
+        if (window.TOYOTA_CONFIG && window.TOYOTA_CONFIG.crm_endpoint) {
+          try {
+            const payload = {
+              timestamp: new Date().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" }),
+              client_name: "Visitor (Simulasi Kredit)",
+              client_wa: "-",
+              toyota_model: car,
+              financing_plan: currentPriority + " (" + currentTenor + ")",
+              domicile_area: "Jabodetabek",
+              budget_dp: "DP " + dp + " Juta",
+              status: "⚡ Simulasi Kredit",
+              source: "Kalkulator Interaktif",
+              notes: "Prioritas: " + currentPriority + ", Tenor: " + currentTenor
+            };
+            fetch(window.TOYOTA_CONFIG.crm_endpoint, {
+              method: "POST",
+              mode: "no-cors",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            }).catch(function(err) {
+              console.warn("CRM logging:", err);
+            });
+          } catch(err) {
+            console.warn("CRM error:", err);
+          }
+        }
+
         const message = "Halo Mas Jordan Tunas Toyota, saya ingin simulasi kredit untuk:%0A" +
           "- Tipe Mobil: " + encodeURIComponent(car) + "%0A" +
           "- Budget DP: Rp " + dp + " Juta%0A" +
