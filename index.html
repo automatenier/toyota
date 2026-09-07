@@ -150,6 +150,18 @@
     }
   </style>
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18303299875"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18303299875', {
+      allow_enhanced_conversions: true
+    });
+  </script>
+
   <!-- Centralized Toyota Master Configuration & Tracking Setup -->
   <script>
     window.TOYOTA_CONFIG = {
@@ -164,7 +176,7 @@
       tracking: {
         debug: false, // Set ke true atau gunakan parameter ?debug_tracking=true di URL
         ga4_id: "G-XXXXXXXXXX", // Isi ID Google Analytics 4
-        google_ads_id: "AW-XXXXXXXXXX", // Isi ID Akun Google Ads (Contoh: AW-123456789)
+        google_ads_id: "AW-18303299875", // ID Akun Google Ads Resmi
         gtm_id: "", // Opsional: GTM Container ID
         meta_pixel_id: "", // Opsional: Meta Pixel ID
         enhanced_conversions: true, // Auto normalisasi first-party customer data (E.164 +62)

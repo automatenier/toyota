@@ -211,7 +211,8 @@
       return;
     }
 
-    if (!document.getElementById("gtag-script")) {
+    const existingScript = document.getElementById("gtag-script") || (document.querySelector ? document.querySelector('script[src*="googletagmanager.com/gtag/js"]') : null);
+    if (!existingScript) {
       const script = document.createElement("script");
       script.id = "gtag-script";
       script.async = true;
@@ -219,23 +220,23 @@
       document.head.appendChild(script);
 
       gtag("js", new Date());
+    }
 
-      // Configure Google Analytics 4
-      if (ga4Id && !ga4Id.includes("XXXX")) {
-        gtag("config", ga4Id, {
-          send_page_view: true,
-          cookie_flags: "SameSite=None;Secure"
-        });
-        logDebug("Configured GA4:", ga4Id);
-      }
+    // Configure Google Analytics 4
+    if (ga4Id && !ga4Id.includes("XXXX")) {
+      gtag("config", ga4Id, {
+        send_page_view: true,
+        cookie_flags: "SameSite=None;Secure"
+      });
+      logDebug("Configured GA4:", ga4Id);
+    }
 
-      // Configure Google Ads with Enhanced Conversions
-      if (googleAdsId && !googleAdsId.includes("XXXX")) {
-        gtag("config", googleAdsId, {
-          allow_enhanced_conversions: true
-        });
-        logDebug("Configured Google Ads Tag:", googleAdsId);
-      }
+    // Configure Google Ads with Enhanced Conversions
+    if (googleAdsId && !googleAdsId.includes("XXXX")) {
+      gtag("config", googleAdsId, {
+        allow_enhanced_conversions: true
+      });
+      logDebug("Configured Google Ads Tag:", googleAdsId);
     }
   }
 
