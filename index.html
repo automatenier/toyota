@@ -298,35 +298,63 @@
               <input type="hidden" name="toyota_model" id="input_toyota_model" value="" required>
               
               <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
-                <button type="button" class="quiz-option-card bg-surface-container-lowest hover:bg-surface-container-high p-3.5 sm:p-4 rounded-2xl border-2 border-surface-container hover:border-primary text-left flex items-center gap-3 transition-all cursor-pointer min-h-[72px]" onclick="selectToyotaOption('toyota_model', 'All New Avanza & Veloz', this, 1)">
-                  <span class="option-badge w-8 h-8 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[13px] shrink-0 border border-surface-container">A</span>
+                <!-- Card A: Avanza & Veloz -->
+                <button type="button" class="quiz-option-card bg-surface-container-lowest hover:bg-surface-container-high p-3 sm:p-3.5 rounded-2xl border-2 border-surface-container hover:border-primary text-left flex flex-col justify-between transition-all cursor-pointer group min-h-[145px] sm:min-h-[155px] shadow-sm hover:shadow-md active:scale-[0.98]" onclick="selectToyotaOption('toyota_model', 'All New Avanza & Veloz', this, 1)">
+                  <div class="flex items-center justify-between w-full">
+                    <span class="option-badge w-6 h-6 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] border border-surface-container">A</span>
+                    <span class="text-[10px] font-extrabold text-primary px-2 py-0.5 rounded-full bg-primary/10">DP 10 Jt</span>
+                  </div>
+                  <div class="w-full h-16 sm:h-20 flex items-center justify-center my-1 overflow-hidden rounded-xl bg-surface-container-low/50 p-1">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Zm7qIgFE6T4vgXDfXpMnIxS2HWVau4WrQmGRDBHDnxQX_HiIDz53JOILD0CrhVfV2hhC-kPjvPO7j04ky8nWHPmRoExvBM1cDPfpGUIWUj3y8UWrC10ebwzVqs-S0MuZolkk0zu-1vqmrM-ycJY4A7Yt0o4TkPFj72XKQKDTTuByGfEKwTWlQOLVc4cly9S5QMgEvNujP7x9hz6UIEBpcXI1a3TvwO0A09AH5CLB8qi-kqdUQEvC2Q" alt="All New Avanza & Veloz" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+                  </div>
                   <div class="flex flex-col">
-                    <span class="font-headline-sm text-[13px] sm:text-[14px] font-bold text-on-surface leading-tight">Avanza & Veloz</span>
-                    <span class="text-[11px] text-secondary font-medium">DP Mulai 10 Jt</span>
+                    <span class="font-headline-sm text-[13px] sm:text-[14px] font-extrabold text-on-surface leading-tight">Avanza & Veloz</span>
+                    <span class="text-[10px] sm:text-[11px] text-secondary font-medium">MPV Favorit</span>
                   </div>
                 </button>
 
-                <button type="button" class="quiz-option-card bg-surface-container-lowest hover:bg-surface-container-high p-3.5 sm:p-4 rounded-2xl border-2 border-surface-container hover:border-primary text-left flex items-center gap-3 transition-all cursor-pointer min-h-[72px]" onclick="selectToyotaOption('toyota_model', 'Toyota Calya & Agya', this, 1)">
-                  <span class="option-badge w-8 h-8 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[13px] shrink-0 border border-surface-container">B</span>
+                <!-- Card B: Calya & Agya -->
+                <button type="button" class="quiz-option-card bg-surface-container-lowest hover:bg-surface-container-high p-3 sm:p-3.5 rounded-2xl border-2 border-surface-container hover:border-primary text-left flex flex-col justify-between transition-all cursor-pointer group min-h-[145px] sm:min-h-[155px] shadow-sm hover:shadow-md active:scale-[0.98]" onclick="selectToyotaOption('toyota_model', 'Toyota Calya & Agya', this, 1)">
+                  <div class="flex items-center justify-between w-full">
+                    <span class="option-badge w-6 h-6 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] border border-surface-container">B</span>
+                    <span class="text-[10px] font-extrabold text-primary px-2 py-0.5 rounded-full bg-primary/10">DP 5-6 Jt</span>
+                  </div>
+                  <div class="w-full h-16 sm:h-20 flex items-center justify-center my-1 overflow-hidden rounded-xl bg-surface-container-low/50 p-1">
+                    <img src="images/calya-color-white.png" alt="Toyota Calya & Agya" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+                  </div>
                   <div class="flex flex-col">
-                    <span class="font-headline-sm text-[13px] sm:text-[14px] font-bold text-on-surface leading-tight">Calya & Agya</span>
-                    <span class="text-[11px] text-secondary font-medium">DP Mulai 5 - 6 Jt</span>
+                    <span class="font-headline-sm text-[13px] sm:text-[14px] font-extrabold text-on-surface leading-tight">Calya & Agya</span>
+                    <span class="text-[10px] sm:text-[11px] text-secondary font-medium">Hemat & Lincah</span>
                   </div>
                 </button>
 
-                <button type="button" class="quiz-option-card bg-surface-container-lowest hover:bg-surface-container-high p-3.5 sm:p-4 rounded-2xl border-2 border-surface-container hover:border-primary text-left flex items-center gap-3 transition-all cursor-pointer min-h-[72px]" onclick="selectToyotaOption('toyota_model', 'Innova (Zenix & Diesel)', this, 1)">
-                  <span class="option-badge w-8 h-8 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[13px] shrink-0 border border-surface-container">C</span>
+                <!-- Card C: Innova Series -->
+                <button type="button" class="quiz-option-card bg-surface-container-lowest hover:bg-surface-container-high p-3 sm:p-3.5 rounded-2xl border-2 border-surface-container hover:border-primary text-left flex flex-col justify-between transition-all cursor-pointer group min-h-[145px] sm:min-h-[155px] shadow-sm hover:shadow-md active:scale-[0.98]" onclick="selectToyotaOption('toyota_model', 'Innova (Diesel & Zenix)', this, 1)">
+                  <div class="flex items-center justify-between w-full">
+                    <span class="option-badge w-6 h-6 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] border border-surface-container">C</span>
+                    <span class="text-[10px] font-extrabold text-primary px-2 py-0.5 rounded-full bg-primary/10">DP 42 Jt</span>
+                  </div>
+                  <div class="w-full h-16 sm:h-20 flex items-center justify-center my-1 overflow-hidden rounded-xl bg-surface-container-low/50 p-1">
+                    <img src="images/reborn.png" alt="Toyota Innova Series" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+                  </div>
                   <div class="flex flex-col">
-                    <span class="font-headline-sm text-[13px] sm:text-[14px] font-bold text-on-surface leading-tight">Innova Series</span>
-                    <span class="text-[11px] text-secondary font-medium">Zenix & Diesel</span>
+                    <span class="font-headline-sm text-[13px] sm:text-[14px] font-extrabold text-on-surface leading-tight">Innova Series</span>
+                    <span class="text-[10px] sm:text-[11px] text-secondary font-medium">Reborn & Zenix</span>
                   </div>
                 </button>
 
-                <button type="button" class="quiz-option-card bg-surface-container-lowest hover:bg-surface-container-high p-3.5 sm:p-4 rounded-2xl border-2 border-surface-container hover:border-primary text-left flex items-center gap-3 transition-all cursor-pointer min-h-[72px]" onclick="selectToyotaOption('toyota_model', 'Model Lainnya (Fortuner/Raize/dll)', this, 1)">
-                  <span class="option-badge w-8 h-8 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[13px] shrink-0 border border-surface-container">D</span>
+                <!-- Card D: Model Lainnya -->
+                <button type="button" class="quiz-option-card bg-surface-container-lowest hover:bg-surface-container-high p-3 sm:p-3.5 rounded-2xl border-2 border-surface-container hover:border-primary text-left flex flex-col justify-between transition-all cursor-pointer group min-h-[145px] sm:min-h-[155px] shadow-sm hover:shadow-md active:scale-[0.98]" onclick="selectToyotaOption('toyota_model', 'Model Lainnya (Fortuner/Raize/dll)', this, 1)">
+                  <div class="flex items-center justify-between w-full">
+                    <span class="option-badge w-6 h-6 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-[11px] border border-surface-container">D</span>
+                    <span class="text-[10px] font-extrabold text-tertiary px-2 py-0.5 rounded-full bg-tertiary/10">Semua Tipe</span>
+                  </div>
+                  <div class="w-full h-16 sm:h-20 flex items-center justify-center my-1 overflow-hidden rounded-xl bg-surface-container-low/50 p-1">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_1rjMJKKVh29XnSP5TczFChukjSbJBZbqt_e714BkBIX71v3a1Z00nShuF2Woyb7NcUrxAycJaWRCWahSJdWqvhC-JrtZSYQ2rvZJXfOfOqved47P77KS_ohOrRp0E-DSf9M_73jCLZgs4o2Pg-acwuYHhOkJlHgN2JPAObXkRrNC8PpF8hngBmtD8xNpQVdhcgwhgWf1-hhweswfSJpq3clFadr2xSINGUhJL8OiTRkW5q1mcTXZ2Q" alt="Model Lainnya (Fortuner, Raize, dll)" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+                  </div>
                   <div class="flex flex-col">
-                    <span class="font-headline-sm text-[13px] sm:text-[14px] font-bold text-on-surface leading-tight">Model Lainnya</span>
-                    <span class="text-[11px] text-secondary font-medium">Fortuner, Raize, dll</span>
+                    <span class="font-headline-sm text-[13px] sm:text-[14px] font-extrabold text-on-surface leading-tight">Model Lainnya</span>
+                    <span class="text-[10px] sm:text-[11px] text-secondary font-medium">Fortuner, Raize, dll</span>
                   </div>
                 </button>
               </div>
