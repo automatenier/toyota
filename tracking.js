@@ -341,13 +341,29 @@
     gtag("event", ga4EventName, Object.assign({}, eventParams));
     pushDataLayer(ga4EventName, eventParams);
 
-    // 4. Meta Pixel Track
+    // 4. Meta Pixel Track (Aligned with Conversions API Review Setup: Lead, SubmitApplication, ViewContent)
     if (window.fbq) {
-      if (ga4EventName === "generate_lead") {
-        window.fbq("track", "Lead", { content_name: customParams.toyota_model || "Toyota Lead" }, { eventID: eventId });
-      } else if (ga4EventName === "contact") {
-        window.fbq("trackCustom", "WhatsAppContact", { location: customParams.click_location || "general" }, { eventID: eventId });
+      let metaEventName = "Lead";
+      const metaPayload = {
+        content_name: customParams.toyota_model || "Toyota Lead",
+        currency: "IDR",
+        value: customParams.value || 100000
+      };
+
+      if (actionKey === "hero_quiz_lead") {
+        metaEventName = "Lead";
+      } else if (actionKey === "credit_calc_lead") {
+        metaEventName = "SubmitApplication";
+        metaPayload.value = customParams.value || 50000;
+      } else if (actionKey === "whatsapp_click" || actionKey.includes("whatsapp")) {
+        metaEventName = "Contact";
+      } else if (actionKey === "view_content") {
+        metaEventName = "ViewContent";
+        metaPayload.value = 0;
       }
+
+      window.fbq("track", metaEventName, metaPayload, { eventID: eventId });
+      logDebug("Meta Pixel Event fired -> " + metaEventName, { metaPayload, eventID: eventId });
     }
 
     return eventId;

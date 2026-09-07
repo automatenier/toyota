@@ -178,7 +178,7 @@
         ga4_id: "G-XXXXXXXXXX", // Isi ID Google Analytics 4
         google_ads_id: "AW-18303299875", // ID Akun Google Ads Resmi
         gtm_id: "", // Opsional: GTM Container ID
-        meta_pixel_id: "", // Opsional: Meta Pixel ID
+        meta_pixel_id: "2029772677665340", // Meta Dataset / Pixel ID Resmi
         enhanced_conversions: true, // Auto normalisasi first-party customer data (E.164 +62)
         conversion_labels: {
           hero_quiz_lead: "",         // Primary: Submit Form Kualifikasi Hero
@@ -1103,13 +1103,20 @@
     const inputEl = document.getElementById("input_" + fieldKey);
     if (inputEl) inputEl.value = value;
 
-    // Track step progress to dataLayer
+    // Track step progress to dataLayer & Meta ViewContent
     if (window.ToyotaTracker) {
       window.ToyotaTracker.pushDataLayer("quiz_step_progress", {
         step_number: stepNum,
         field_key: fieldKey,
         selected_value: value
       });
+
+      if (fieldKey === "toyota_model") {
+        window.ToyotaTracker.trackConversion("view_content", {
+          toyota_model: value,
+          value: 0
+        });
+      }
     }
 
     // Reset styles in current step

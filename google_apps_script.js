@@ -156,9 +156,9 @@ function doPost(e) {
 // META CONVERSIONS API (CAPI) ENGINE
 // ══════════════════════════════════════════════════════════════════════════════
 var META_CONFIG = {
-  pixel_id: "",        // Contoh: "123456789012345"
-  access_token: "",    // Dari Meta Events Manager -> Settings -> Generate Access Token
-  test_event_code: ""  // Opsional: Dari tab 'Test Events' Meta (contoh: "TEST54321")
+  pixel_id: "2029772677665340",        // Dataset ID / Pixel ID Meta Anda
+  access_token: "EAAHcxUeQtbYBSdHUqwEYUwwYE67DhCBSj2X1fWjZAoNxX5YaeaJZBJ9RQHYjfpLPioItTc4JOBMY196keve0ZCHRyMofvVAgfgZCH5T17XMdlaDsUl2Y5ZBvLvvpiZASOiRCKt0iWB87WTbRFQ8lkoMHyfznHBW7xscAxV1ZCQgVfekd3wh8rTczxqvucPXeRwXKgZDZD",
+  test_event_code: ""                  // Isi jika sedang menguji di tab 'Test Events' Meta (contoh: "TEST12345")
 };
 
 function sendToMetaCAPI(data) {
@@ -184,15 +184,17 @@ function sendToMetaCAPI(data) {
       cleanPhone = "62" + cleanPhone.substring(1);
     }
 
-    // 2. Format User Data dengan Hashing SHA-256
+    // 2. Format User Data dengan Hashing SHA-256 (Sesuai Konfigurasi Review Setup Meta)
     var userData = {
       country: [hashSHA256("id")]
     };
 
+    // Phone number: Hashed SHA-256 (E.164 digits)
     if (cleanPhone) {
       userData.ph = [hashSHA256(cleanPhone)];
     }
 
+    // First name & Last name: Hashed SHA-256
     if (data.client_name) {
       var nameParts = data.client_name.trim().toLowerCase().split(/\s+/);
       userData.fn = [hashSHA256(nameParts[0])];
@@ -201,14 +203,26 @@ function sendToMetaCAPI(data) {
       }
     }
 
+    // County / Region / State & City: Hashed SHA-256
     if (data.domicile_area) {
-      userData.ct = [hashSHA256(data.domicile_area.trim().toLowerCase())];
+      var dom = data.domicile_area.trim().toLowerCase();
+      userData.st = [hashSHA256(dom)]; // County / Region
+      userData.ct = [hashSHA256(dom.replace(/[^a-z0-9]/g, ""))]; // City
     }
 
-    // Identifiers Browser Meta (_fbp dan _fbc)
+    // Client user agent: DO NOT HASH (Meta requirement)
+    if (data.client_user_agent) {
+      userData.client_user_agent = data.client_user_agent;
+    }
+
+    // Client IP Address jika diteruskan
+    if (data.client_ip) {
+      userData.client_ip_address = data.client_ip;
+    }
+
+    // Identifiers Browser Meta (_fbp dan _fbc) untuk Event Match Quality maksimal
     if (data.fbp) userData.fbp = data.fbp;
     if (data.fbc) userData.fbc = data.fbc;
-    if (data.client_user_agent) userData.client_user_agent = data.client_user_agent;
 
     var eventPayload = {
       event_name: eventName,
