@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "toyota-crm",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-20",
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "GOOGLE_SERVICE_ACCOUNT_EMAIL": "cook-agent-605@festive-kayak-459112-e0.iam.gserviceaccount.com",
+    "SPREADSHEET_ID": "10bdJgupeYWTA_pHQ-qGjIlANb-dmR8yHyOisdbQc1e0"
+  }
+}
