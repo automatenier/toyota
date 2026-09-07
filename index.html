@@ -149,6 +149,36 @@
       }
     }
   </style>
+
+  <!-- Centralized Toyota Master Configuration & Tracking Setup -->
+  <script>
+    window.TOYOTA_CONFIG = {
+      sales_agent: "Mathew Jordan",
+      hotline: "6288975785200",
+      eleven_agent_id: "agent_4701m1x2cn9ee9894xs9f0y3q4tq",
+      site_domain: "toyota.jordanengo.com",
+      spreadsheet_id: "10bdJgupeYWTA_pHQ-qGjIlANb-dmR8yHyOisdbQc1e0",
+      crm_endpoint: "", // Web App deployment URL dari Google Apps Script (/exec)
+
+      // ══════ ENTERPRISE TRACKING & ATTRIBUTION ENGINE ══════
+      tracking: {
+        debug: false, // Set ke true atau gunakan parameter ?debug_tracking=true di URL
+        ga4_id: "G-XXXXXXXXXX", // Isi ID Google Analytics 4
+        google_ads_id: "AW-XXXXXXXXXX", // Isi ID Akun Google Ads (Contoh: AW-123456789)
+        gtm_id: "", // Opsional: GTM Container ID
+        meta_pixel_id: "", // Opsional: Meta Pixel ID
+        enhanced_conversions: true, // Auto normalisasi first-party customer data (E.164 +62)
+        conversion_labels: {
+          hero_quiz_lead: "",         // Primary: Submit Form Kualifikasi Hero
+          credit_calc_lead: "",       // Primary/Secondary: Submit Simulasi Kredit
+          whatsapp_click: "",         // Primary: Chat WhatsApp Konsultasi
+          voice_agent_interact: ""    // Secondary: Bicara dengan Voice AI Consultant
+        }
+      }
+    };
+  </script>
+  <!-- Enterprise Tracking & Attribution Engine -->
+  <script src="tracking.js"></script>
 </head>
 
 <body class="bg-surface text-on-surface min-h-screen flex flex-col antialiased selection:bg-primary selection:text-on-primary">
@@ -201,7 +231,7 @@
         <span class="font-label-sm text-secondary uppercase">Sales Specialist</span>
         <span class="font-headline-sm text-[16px] text-on-surface">Mathew Jordan</span>
       </div>
-      <a class="bg-tertiary hover:bg-tertiary-container text-on-tertiary px-5 py-2.5 rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg transition active:scale-95 font-label-md" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan%20Tunas%20Toyota,%20saya%20mau%20konsultasi%20promo%20dan%20simulasi%20kredit%20mobil%20Toyota" rel="noopener noreferrer" target="_blank">
+      <a data-track-cta="header_cta" class="bg-tertiary hover:bg-tertiary-container text-on-tertiary px-5 py-2.5 rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg transition active:scale-95 font-label-md" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan%20Tunas%20Toyota,%20saya%20mau%20konsultasi%20promo%20dan%20simulasi%20kredit%20mobil%20Toyota" rel="noopener noreferrer" target="_blank">
         <span class="material-symbols-outlined text-[20px]">chat</span>
         <span>Hubungi WhatsApp</span>
       </a>
@@ -232,7 +262,7 @@
 
       <!-- CTA Group Buttons -->
       <div class="flex flex-wrap items-center gap-4 pt-3">
-        <a class="bg-tertiary hover:bg-tertiary-container text-on-tertiary px-6 py-3.5 rounded-xl flex items-center gap-2.5 font-label-lg shadow-md hover:shadow-lg transition active:scale-95" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan%20Tunas%20Toyota,%20saya%20mau%20konsultasi%20promo%20dan%20simulasi%20kredit%20mobil%20Toyota" rel="noopener noreferrer" target="_blank">
+        <a data-track-cta="hero_cta" class="bg-tertiary hover:bg-tertiary-container text-on-tertiary px-6 py-3.5 rounded-xl flex items-center gap-2.5 font-label-lg shadow-md hover:shadow-lg transition active:scale-95" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan%20Tunas%20Toyota,%20saya%20mau%20konsultasi%20promo%20dan%20simulasi%20kredit%20mobil%20Toyota" rel="noopener noreferrer" target="_blank">
           <span class="material-symbols-outlined text-[22px]">send</span>
           <span>Chat WhatsApp Sekarang</span>
         </a>
@@ -603,7 +633,7 @@
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Free Kaca Film V-Kool Premium</li>
           </ul>
         </div>
-        <a class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan,%20saya%20tertarik%20dengan%20promo%20Innova%20Zenix.%20Boleh%20minta%20rincian%20DP%20dan%20angsurannya?" rel="noopener noreferrer" target="_blank">
+        <a data-track-cta="car_card_cta" data-model="Innova Zenix" class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan,%20saya%20tertarik%20dengan%20promo%20Innova%20Zenix.%20Boleh%20minta%20rincian%20DP%20dan%20angsurannya?" rel="noopener noreferrer" target="_blank">
           <span>Konsultasi Diskon Zenix</span>
           <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
         </a>
@@ -639,7 +669,7 @@
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Bonus Voucher Bensin Ekstra</li>
           </ul>
         </div>
-        <a class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan,%20saya%20ingin%20tanya%20paket%20kredit%20Avanza%20atau%20Veloz%20DP%2015%20Jt" rel="noopener noreferrer" target="_blank">
+        <a data-track-cta="car_card_cta" data-model="Avanza & Veloz" class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan,%20saya%20ingin%20tanya%20paket%20kredit%20Avanza%20atau%20Veloz%20DP%2015%20Jt" rel="noopener noreferrer" target="_blank">
           <span>Konsultasi Diskon Veloz</span>
           <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
         </a>
@@ -675,7 +705,7 @@
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Gratis Pengiriman Towing Prioritas</li>
           </ul>
         </div>
-        <a class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan,%20bisa%20info%20diskon%20maksimal%20dan%20bunga%200%20persen%20untuk%20Fortuner?" rel="noopener noreferrer" target="_blank">
+        <a data-track-cta="car_card_cta" data-model="Fortuner GR Sport" class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan,%20bisa%20info%20diskon%20maksimal%20dan%20bunga%200%20persen%20untuk%20Fortuner?" rel="noopener noreferrer" target="_blank">
           <span>Konsultasi Diskon Fortuner</span>
           <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
         </a>
@@ -711,7 +741,7 @@
             <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-tertiary">check</span> Bonus Dashcam Eksklusif SPK Deal</li>
           </ul>
         </div>
-        <a class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan,%20saya%20mau%20simulasi%20DP%20ringan%20untuk%20Toyota%20Raize%20Turbo" rel="noopener noreferrer" target="_blank">
+        <a data-track-cta="car_card_cta" data-model="Raize Turbo" class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 font-label-md transition active:scale-95 shadow-sm text-center" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan,%20saya%20mau%20simulasi%20DP%20ringan%20untuk%20Toyota%20Raize%20Turbo" rel="noopener noreferrer" target="_blank">
           <span>Konsultasi Diskon Raize</span>
           <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
         </a>
@@ -977,14 +1007,14 @@
           </div>
           <div class="flex items-center gap-2.5">
             <span class="material-symbols-outlined text-tertiary-fixed text-[20px]">chat</span>
-            <a class="hover:text-surface transition" href="https://wa.me/6288975785200" rel="noopener noreferrer" target="_blank">WhatsApp Chat Langsung</a>
+            <a data-track-cta="footer_link" class="hover:text-surface transition" href="https://wa.me/6288975785200" rel="noopener noreferrer" target="_blank">WhatsApp Chat Langsung</a>
           </div>
           <div class="flex items-center gap-2.5">
             <span class="material-symbols-outlined text-surface-dim text-[20px]">mail</span>
             <span>jordan.toyota@tunasgroup.com</span>
           </div>
         </div>
-        <a class="mt-2 bg-tertiary hover:bg-tertiary-container text-on-tertiary px-4 py-2.5 rounded-xl font-label-md flex items-center justify-center gap-2 transition" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan,%20saya%20mau%20konsultasi%20Toyota" rel="noopener noreferrer" target="_blank">
+        <a data-track-cta="footer_cta" class="mt-2 bg-tertiary hover:bg-tertiary-container text-on-tertiary px-4 py-2.5 rounded-xl font-label-md flex items-center justify-center gap-2 transition" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan,%20saya%20mau%20konsultasi%20Toyota" rel="noopener noreferrer" target="_blank">
           <span class="material-symbols-outlined text-[18px]">forum</span>
           <span>Hubungi Sekarang</span>
         </a>
@@ -1008,7 +1038,7 @@
 <!-- ═══════════ FLOATING WHATSAPP BUTTON (EXACTLY LIKE AGENTZ.JORDANENGO.COM) ═══════════ -->
 <div id="agentz-wa-wrapper" style="position:fixed;bottom:150px;right:24px;z-index:2147483645;display:flex;align-items:center;gap:8px;font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,sans-serif;">
   <span id="wa-text-pill" style="background:#ffffff;color:#18181b;font-size:12px;font-weight:700;padding:6px 12px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,0.18);border:1px solid rgba(0,0,0,0.08);letter-spacing:0.2px;pointer-events:none;">WhatsApp chat</span>
-  <a id="main-wa-link" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan%20Tunas%20Toyota,%20saya%20mau%20konsultasi%20promo%20dan%20simulasi%20kredit%20mobil%20Toyota" target="_blank" style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#ffffff;box-shadow:0 8px 24px rgba(0,0,0,0.35);transition:transform 0.2s, box-shadow 0.2s;text-decoration:none;" onmouseover="this.style.transform=&quot;scale(1.08)&quot;;this.style.boxShadow=&quot;0 10px 28px rgba(0,0,0,0.45)&quot;;" onmouseout="this.style.transform=&quot;scale(1)&quot;;this.style.boxShadow=&quot;0 8px 24px rgba(0,0,0,0.35)&quot;;" title="Chat WhatsApp" aria-label="WhatsApp">
+  <a data-track-cta="floating_widget" id="main-wa-link" href="https://wa.me/6288975785200?text=Halo%20Mas%20Jordan%20Tunas%20Toyota,%20saya%20mau%20konsultasi%20promo%20dan%20simulasi%20kredit%20mobil%20Toyota" target="_blank" style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#ffffff;box-shadow:0 8px 24px rgba(0,0,0,0.35);transition:transform 0.2s, box-shadow 0.2s;text-decoration:none;" onmouseover="this.style.transform=&quot;scale(1.08)&quot;;this.style.boxShadow=&quot;0 10px 28px rgba(0,0,0,0.45)&quot;;" onmouseout="this.style.transform=&quot;scale(1)&quot;;this.style.boxShadow=&quot;0 8px 24px rgba(0,0,0,0.35)&quot;;" title="Chat WhatsApp" aria-label="WhatsApp">
     <img src="https://vsl.jordanengo.com/embed/wa.webp" alt="WhatsApp" style="width:36px;height:36px;object-fit:contain;" />
   </a>
 </div>
@@ -1032,16 +1062,6 @@
 </div>
 
 <script>
-  // Centralized Toyota Configuration
-  window.TOYOTA_CONFIG = {
-    sales_agent: "Mathew Jordan",
-    hotline: "6288975785200",
-    eleven_agent_id: "agent_4701m1x2cn9ee9894xs9f0y3q4tq",
-    site_domain: "toyota.jordanengo.com",
-    spreadsheet_id: "10bdJgupeYWTA_pHQ-qGjIlANb-dmR8yHyOisdbQc1e0",
-    crm_endpoint: "" // Web App deployment URL dari Google Apps Script (/exec)
-  };
-
   // In-app Browser Notice check
   (function() {
     const ua = navigator.userAgent || navigator.vendor || window.opera || "";
@@ -1070,6 +1090,15 @@
     quizAnswers[fieldKey] = value;
     const inputEl = document.getElementById("input_" + fieldKey);
     if (inputEl) inputEl.value = value;
+
+    // Track step progress to dataLayer
+    if (window.ToyotaTracker) {
+      window.ToyotaTracker.pushDataLayer("quiz_step_progress", {
+        step_number: stepNum,
+        field_key: fieldKey,
+        selected_value: value
+      });
+    }
 
     // Reset styles in current step
     const parentPanel = buttonEl.closest(".quiz-step-panel");
@@ -1138,7 +1167,26 @@
     const scheme = quizAnswers.financing_plan || "Kredit Promo";
     const dom = quizAnswers.domicile_area || "Jabodetabek";
 
-    // Asynchronous background CRM logging to Google Sheets
+    // 1. Ambil attribution data aktif (Google Ads GCLID / UTMs)
+    const attribution = (window.ToyotaTracker && window.ToyotaTracker.getAttribution) 
+      ? window.ToyotaTracker.getAttribution() 
+      : {};
+
+    // 2. Fire Google Ads Primary Conversion with Enhanced Conversions (First-party normalized data)
+    let conversionEventId = "";
+    if (window.ToyotaTracker) {
+      conversionEventId = window.ToyotaTracker.trackConversion("hero_quiz_lead", {
+        toyota_model: model,
+        financing_plan: scheme,
+        domicile_area: dom,
+        value: 100000 // Estimated Lead Value in IDR
+      }, {
+        name: name,
+        phone: wa
+      });
+    }
+
+    // 3. Asynchronous background CRM logging to Google Sheets (disertai GCLID & UTM)
     if (window.TOYOTA_CONFIG && window.TOYOTA_CONFIG.crm_endpoint) {
       try {
         const payload = {
@@ -1151,7 +1199,13 @@
           budget_dp: "-",
           status: "🔥 New Lead",
           source: "Form Kualifikasi Hero",
-          notes: "Lead kualifikasi instan dari website"
+          notes: "Lead kualifikasi instan website | EventID: " + (conversionEventId || "-"),
+          gclid: attribution.gclid || "-",
+          utm_campaign: attribution.utm_campaign || "-",
+          utm_source: attribution.utm_source || "direct",
+          utm_medium: attribution.utm_medium || "none",
+          utm_content: attribution.utm_content || attribution.utm_term || "-",
+          landing_page: attribution.landing_page || window.location.pathname
         };
         fetch(window.TOYOTA_CONFIG.crm_endpoint, {
           method: "POST",
@@ -1166,6 +1220,7 @@
       }
     }
 
+    // 4. Format Pesan WhatsApp & sematkan label referensi rapi
     const waMessage = 
       "Halo Mas Jordan Tunas Toyota, saya sudah mengisi kualifikasi pemesanan di website:%0A%0A" +
       "🚗 *Model Pilihan:* " + encodeURIComponent(model) + "%0A" +
@@ -1175,7 +1230,10 @@
       "📱 *Nomor HP:* " + encodeURIComponent(wa) + "%0A%0A" +
       "Mohon bantu kirimkan rincian tabel kredit resmi & promo diskon terbaiknya ya Mas.";
 
-    const waUrl = "https://wa.me/6288975785200?text=" + waMessage;
+    let waUrl = "https://wa.me/6288975785200?text=" + waMessage;
+    if (window.ToyotaTracker) {
+      waUrl = window.ToyotaTracker.decorateWhatsAppUrl(waUrl, model + " - Kualifikasi Form");
+    }
 
     // Show success panel
     document.querySelectorAll(".quiz-step-panel").forEach(function(p) { p.classList.add("hidden"); });
@@ -1239,6 +1297,23 @@
         const car = carSelect.value;
         const dp = slider.value;
 
+        // Ambil attribution aktif
+        const attribution = (window.ToyotaTracker && window.ToyotaTracker.getAttribution)
+          ? window.ToyotaTracker.getAttribution()
+          : {};
+
+        // Track conversion Google Ads
+        let calcEventId = "";
+        if (window.ToyotaTracker) {
+          calcEventId = window.ToyotaTracker.trackConversion("credit_calc_lead", {
+            toyota_model: car,
+            dp_amount: dp,
+            priority: currentPriority,
+            tenor: currentTenor,
+            value: 50000
+          });
+        }
+
         // Log calculation inquiry to CRM
         if (window.TOYOTA_CONFIG && window.TOYOTA_CONFIG.crm_endpoint) {
           try {
@@ -1252,7 +1327,13 @@
               budget_dp: "DP " + dp + " Juta",
               status: "⚡ Simulasi Kredit",
               source: "Kalkulator Interaktif",
-              notes: "Prioritas: " + currentPriority + ", Tenor: " + currentTenor
+              notes: "Prioritas: " + currentPriority + ", Tenor: " + currentTenor + " | EventID: " + (calcEventId || "-"),
+              gclid: attribution.gclid || "-",
+              utm_campaign: attribution.utm_campaign || "-",
+              utm_source: attribution.utm_source || "direct",
+              utm_medium: attribution.utm_medium || "none",
+              utm_content: attribution.utm_content || attribution.utm_term || "-",
+              landing_page: attribution.landing_page || window.location.pathname
             };
             fetch(window.TOYOTA_CONFIG.crm_endpoint, {
               method: "POST",
@@ -1273,7 +1354,12 @@
           "- Prioritas: " + encodeURIComponent(currentPriority) + "%0A" +
           "- Tenor: " + encodeURIComponent(currentTenor) + "%0A%0A" +
           "Mohon hitungan resmi dan diskon terbaiknya ya Mas.";
-        window.open("https://wa.me/6288975785200?text=" + message, "_blank");
+
+        let waCalcUrl = "https://wa.me/6288975785200?text=" + message;
+        if (window.ToyotaTracker) {
+          waCalcUrl = window.ToyotaTracker.decorateWhatsAppUrl(waCalcUrl, car + " - Kalkulator Kredit");
+        }
+        window.open(waCalcUrl, "_blank");
       });
     }
   })();
