@@ -24,7 +24,7 @@ window.TOYOTA_CONFIG = {
   // ...
   tracking: {
     ga4_id: "G-XXXXXXXXXX",          // Masukkan GA4 Measurement ID Anda
-    google_ads_id: "AW-123456789",   // Masukkan Google Ads Conversion ID Anda
+    google_ads_id: "AW-18303299875", // ID Akun Google Ads Resmi Anda
     conversion_labels: {
       hero_quiz_lead: "aBcDeFgHiJkL",      // Label dari aksi Toyota_Lead_Hero_Quiz
       credit_calc_lead: "bCdEfGhIjKlM",    // Label dari aksi Toyota_Lead_Credit_Calculator
